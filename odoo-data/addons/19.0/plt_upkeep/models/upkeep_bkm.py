@@ -31,13 +31,6 @@ class UpkeepBKM(models.Model):
         ondelete='restrict',
         tracking=True,
     )
-    rkh_id = fields.Many2one(
-        'plan.rkh',
-        string='RKH Reference',
-        ondelete='set null',
-        tracking=True,
-        index=True,
-    )
     activity_code_id = fields.Many2one(
         'upkeep.activity_code',
         string='Activity',

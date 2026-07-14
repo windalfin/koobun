@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_nursery_manager" model="res.groups">
+        <field name="name">Nursery Manager</field>
+        <field name="comment">Full access to nursery modules.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

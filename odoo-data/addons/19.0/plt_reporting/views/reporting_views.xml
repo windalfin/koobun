@@ -7,12 +7,10 @@
         <field name="arch" type="xml">
             <list string="Daily Production" create="0" edit="0" delete="0">
                 <field name="date"/>
-                <field name="block_id"/>
-                <field name="harvester_id"/>
+                <field name="block_name"/>
+                <field name="harvester_name"/>
                 <field name="janjang_count"/>
                 <field name="brondolan_kg"/>
-                <field name="total_kg"/>
-                <field name="bjr"/>
             </list>
         </field>
     </record>
@@ -24,10 +22,9 @@
             <list string="Monthly Yield" create="0" edit="0" delete="0">
                 <field name="year"/>
                 <field name="month"/>
-                <field name="block_id"/>
+                <field name="block_name"/>
                 <field name="area_ha"/>
-                <field name="total_kg"/>
-                <field name="yield_kg_per_ha"/>
+                <field name="janjang_total"/>
             </list>
         </field>
     </record>
@@ -38,11 +35,10 @@
         <field name="arch" type="xml">
             <list string="Daily Restan" create="0" edit="0" delete="0">
                 <field name="date"/>
-                <field name="block_id"/>
-                <field name="tph_id"/>
+                <field name="block_name"/>
+                <field name="tph_code"/>
                 <field name="janjang_count"/>
                 <field name="estimated_kg"/>
-                <field name="age_hours"/>
                 <field name="escalated"/>
             </list>
         </field>
@@ -55,10 +51,8 @@
             <list string="Monthly Cost" create="0" edit="0" delete="0">
                 <field name="year"/>
                 <field name="month"/>
-                <field name="block_id"/>
+                <field name="block_name"/>
                 <field name="total_cost"/>
-                <field name="total_kg"/>
-                <field name="cost_per_kg"/>
             </list>
         </field>
     </record>

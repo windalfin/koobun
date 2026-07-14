@@ -6,6 +6,7 @@ class UpkeepActivityCode(models.Model):
     """Standard activity catalog for upkeep operations."""
     _name = 'upkeep.activity_code'
     _description = 'Upkeep Activity Code'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'code'
 
     name = fields.Char(

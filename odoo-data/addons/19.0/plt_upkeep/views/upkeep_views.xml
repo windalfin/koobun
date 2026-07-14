@@ -233,7 +233,7 @@
         <field name="name">upkeep.pd_census.tree</field>
         <field name="model">upkeep.pd_census</field>
         <field name="arch" type="xml">
-            <list string="P&D Census Records">
+            <list string="P&amp;D Census Records">
                 <field name="date"/>
                 <field name="block_id"/>
                 <field name="pest_type"/>
@@ -251,7 +251,7 @@
         <field name="name">upkeep.pd_census.form</field>
         <field name="model">upkeep.pd_census</field>
         <field name="arch" type="xml">
-            <form string="P&D Census">
+            <form string="P&amp;D Census">
                 <sheet>
                     <group>
                         <group>
