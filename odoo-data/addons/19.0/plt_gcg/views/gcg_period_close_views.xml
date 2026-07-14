@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================ -->
+    <!--  Period Close Checklist — Tree View                               -->
+    <!-- ================================================================ -->
+    <record id="view_gcg_period_close_checklist_tree" model="ir.ui.view">
+        <field name="name">gcg.period.close.checklist.tree</field>
+        <field name="model">gcg.period.close.checklist</field>
+        <field name="arch" type="xml">
+            <list string="Period Close Checklists">
+                <field name="name"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'completed'"
+                       decoration-info="state == 'in_progress'"
+                       decoration-danger="state == 'locked'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Period Close Checklist — Form View -->
+    <record id="view_gcg_period_close_checklist_form" model="ir.ui.view">
+        <field name="name">gcg.period.close.checklist.form</field>
+        <field name="model">gcg.period.close.checklist</field>
+        <field name="arch" type="xml">
+            <form string="Period Close Checklist">
+                <header>
+                    <button name="action_start" string="Start" type="object"
+                            invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_complete" string="Complete" type="object"
+                            invisible="state not in ('draft', 'in_progress')" class="btn-success"/>
+                    <button name="action_lock" string="Lock" type="object"
+                            invisible="state != 'completed'" class="btn-danger"/>
+                    <field name="state" widget="statusbar"
+                           options="{'clickable': '0'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. January 2025 Month-End Close"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field name="period_start" required="1"/>
+                            <field name="period_end" required="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Checklist Items">
+                            <field name="item_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="description"/>
+                                    <field name="check_type"/>
+                                    <field name="model_to_check" optional="hide"/>
+                                    <field name="is_compliant"/>
+                                    <field name="verified_by" optional="hide"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="sequence"/>
+                                            <field name="description" required="1"/>
+                                            <field name="check_type"/>
+                                        </group>
+                                        <group>
+                                            <field name="model_to_check"/>
+                                            <field name="domain_filter"/>
+                                        </group>
+                                    </group>
+                                    <group string="Verification">
+                                        <field name="expected_result"/>
+                                        <field name="actual_result"/>
+                                        <field name="is_compliant"/>
+                                        <field name="verified_by"/>
+                                        <field name="verified_at"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Period Close Checklist — Search View -->
+    <record id="view_gcg_period_close_checklist_search" model="ir.ui.view">
+        <field name="name">gcg.period.close.checklist.search</field>
+        <field name="model">gcg.period.close.checklist</field>
+        <field name="arch" type="xml">
+            <search string="Search Period Closes">
+                <field name="name"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="in_progress" string="In Progress"
+                        domain="[('state', '=', 'in_progress')]"/>
+                <filter name="completed" string="Completed"
+                        domain="[('state', '=', 'completed')]"/>
+                <filter name="locked" string="Locked"
+                        domain="[('state', '=', 'locked')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Period Close Checklist — Action -->
+    <record id="action_gcg_period_close_checklist" model="ir.actions.act_window">
+        <field name="name">Period Close</field>
+        <field name="res_model">gcg.period.close.checklist</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_gcg_period_close_checklist_search"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_compliance_root" name="Compliance (Kepatuhan)" sequence="90"/>
+
+    <record id="action_compliance_ispo" model="ir.actions.act_window">
+        <field name="name">ISPO Evidence</field>
+        <field name="res_model">compliance.ispo_evidence</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_compliance_ispo" parent="menu_compliance_root" name="ISPO Evidence" sequence="10" action="action_compliance_ispo"/>
+
+    <record id="action_compliance_eudr" model="ir.actions.act_window">
+        <field name="name">EUDR Export</field>
+        <field name="res_model">compliance.eudr_export</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_compliance_eudr" parent="menu_compliance_root" name="EUDR Export" sequence="20" action="action_compliance_eudr"/>
+
+    <record id="action_compliance_k3" model="ir.actions.act_window">
+        <field name="name">K3 Incidents</field>
+        <field name="res_model">compliance.k3_incident</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_compliance_k3" parent="menu_compliance_root" name="K3 Incidents" sequence="30" action="action_compliance_k3"/>
+
+    <record id="action_compliance_env" model="ir.actions.act_window">
+        <field name="name">Environmental</field>
+        <field name="res_model">compliance.environmental</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_compliance_env" parent="menu_compliance_root" name="Environmental" sequence="40" action="action_compliance_env"/>
+
+</odoo>

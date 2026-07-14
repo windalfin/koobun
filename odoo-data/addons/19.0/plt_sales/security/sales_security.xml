@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================ -->
+    <!--  Security Groups                                                  -->
+    <!-- ================================================================ -->
+
+    <!-- Sales Manager: full CRUD on all sales models -->
+    <record id="group_sales_manager" model="res.groups">
+        <field name="name">Sales Manager</field>
+        <field name="comment">Full access to all PLT-07 sales, pricing, and mill reconciliation models.</field>
+    </record>
+
+</odoo>

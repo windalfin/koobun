@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_plasma_farmer_user,plasma.farmer.user,model_plasma_farmer,base.group_user,1,0,0,0
+access_plasma_farmer_manager,plasma.farmer.manager,model_plasma_farmer,group_plasma_manager,1,1,1,1
+access_plasma_koperasi_user,plasma.koperasi.user,model_plasma_koperasi,base.group_user,1,0,0,0
+access_plasma_koperasi_manager,plasma.koperasi.manager,model_plasma_koperasi,group_plasma_manager,1,1,1,1
+access_plasma_ffb_intake_user,plasma.ffb_intake.user,model_plasma_ffb_intake,base.group_user,1,0,0,0
+access_plasma_ffb_intake_manager,plasma.ffb_intake.manager,model_plasma_ffb_intake,group_plasma_manager,1,1,1,1
+access_plasma_loan_ledger_user,plasma.loan_ledger.user,model_plasma_loan_ledger,base.group_user,1,0,0,0
+access_plasma_loan_ledger_manager,plasma.loan_ledger.manager,model_plasma_loan_ledger,group_plasma_manager,1,1,1,1
+access_plasma_farmer_statement_user,plasma.farmer_statement.user,model_plasma_farmer_statement,base.group_user,1,0,0,0
+access_plasma_farmer_statement_manager,plasma.farmer_statement.manager,model_plasma_farmer_statement,group_plasma_manager,1,1,1,1

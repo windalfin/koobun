@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_compliance_ispo_user,compliance.ispo_evidence.user,model_compliance_ispo_evidence,base.group_user,1,0,0,0
+access_compliance_ispo_manager,compliance.ispo_evidence.manager,model_compliance_ispo_evidence,group_compliance_manager,1,1,1,1
+access_compliance_eudr_user,compliance.eudr_export.user,model_compliance_eudr_export,base.group_user,1,0,0,0
+access_compliance_eudr_manager,compliance.eudr_export.manager,model_compliance_eudr_export,group_compliance_manager,1,1,1,1
+access_compliance_k3_user,compliance.k3_incident.user,model_compliance_k3_incident,base.group_user,1,0,0,0
+access_compliance_k3_manager,compliance.k3_incident.manager,model_compliance_k3_incident,group_compliance_manager,1,1,1,1
+access_compliance_env_user,compliance.environmental.user,model_compliance_environmental,base.group_user,1,0,0,0
+access_compliance_env_manager,compliance.environmental.manager,model_compliance_environmental,group_compliance_manager,1,1,1,1

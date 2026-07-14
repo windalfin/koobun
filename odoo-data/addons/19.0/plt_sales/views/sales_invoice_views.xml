@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================ -->
+    <!--  Sales Invoice Line — Views                                       -->
+    <!-- ================================================================ -->
+
+    <!-- Tree View -->
+    <record id="view_sales_invoice_tree" model="ir.ui.view">
+        <field name="name">sales.invoice.tree</field>
+        <field name="model">sales.invoice</field>
+        <field name="arch" type="xml">
+            <list string="Sales Invoices">
+                <field name="mill_id"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="total_accepted_kg"/>
+                <field name="applicable_price_id" optional="hide"/>
+                <field name="line_amount"/>
+                <field name="invoice_id" optional="hide"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_sales_invoice_form" model="ir.ui.view">
+        <field name="name">sales.invoice.form</field>
+        <field name="model">sales.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Sales Invoice Line">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_invoice" type="object" string="Create Invoice"
+                            class="btn-primary"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,invoiced"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="mill_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field name="period_start" required="1"/>
+                            <field name="period_end" required="1"/>
+                        </group>
+                        <group string="Amounts">
+                            <field name="total_accepted_kg"/>
+                            <field name="applicable_price_id"/>
+                            <field name="line_amount"/>
+                        </group>
+                    </group>
+                    <group string="SPBs">
+                        <field name="spb_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Accounting">
+                        <field name="invoice_id"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_sales_invoice_search" model="ir.ui.view">
+        <field name="name">sales.invoice.search</field>
+        <field name="model">sales.invoice</field>
+        <field name="arch" type="xml">
+            <search string="Search Invoices">
+                <field name="mill_id"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter name="invoiced" string="Invoiced" domain="[('state', '=', 'invoiced')]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

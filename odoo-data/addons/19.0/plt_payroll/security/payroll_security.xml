@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Payroll Manager Group ──────────────────────────── -->
+    <record id="group_payroll_manager" model="res.groups">
+        <field name="name">Payroll Manager</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Full CRUD access to payroll configuration and processing.</field>
+    </record>
+
+    <!-- ── Payroll Administrator Group ────────────────────── -->
+    <record id="group_payroll_admin" model="res.groups">
+        <field name="name">Payroll Administrator</field>
+        <field name="implied_ids" eval="[(4, ref('plt_payroll.group_payroll_manager'))]"/>
+        <field name="comment">Admin-level payroll access including configuration changes.</field>
+    </record>
+
+    <!-- ── Record Rules ───────────────────────────────────── -->
+
+    <!-- Worker Contract: read all -->
+    <record id="payroll_worker_contract_read_all" model="ir.rule">
+        <field name="name">Worker Contract: read all</field>
+        <field name="model_id" ref="model_payroll_worker_contract"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Wage Master: read all -->
+    <record id="payroll_wage_master_read_all" model="ir.rule">
+        <field name="name">Wage Master: read all</field>
+        <field name="model_id" ref="model_payroll_wage_master"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- BPJS Config: read all -->
+    <record id="payroll_bpjs_config_read_all" model="ir.rule">
+        <field name="name">BPJS Config: read all</field>
+        <field name="model_id" ref="model_payroll_bpjs_config"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- PPh 21 Config: read all -->
+    <record id="payroll_pph21_config_read_all" model="ir.rule">
+        <field name="name">PPh 21 Config: read all</field>
+        <field name="model_id" ref="model_payroll_pph21_config"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Payroll Batch: read all -->
+    <record id="payroll_payroll_batch_read_all" model="ir.rule">
+        <field name="name">Payroll Batch: read all</field>
+        <field name="model_id" ref="model_payroll_payroll_batch"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Payslip Line: read all -->
+    <record id="payroll_payslip_line_read_all" model="ir.rule">
+        <field name="name">Payslip Line: read all</field>
+        <field name="model_id" ref="model_payroll_payslip_line"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

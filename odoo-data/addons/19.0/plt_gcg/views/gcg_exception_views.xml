@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================ -->
+    <!--  Exceptions — Tree View                                           -->
+    <!-- ================================================================ -->
+    <record id="view_gcg_exception_tree" model="ir.ui.view">
+        <field name="name">gcg.exception.tree</field>
+        <field name="model">gcg.exception</field>
+        <field name="arch" type="xml">
+            <list string="Exceptions" decoration-danger="severity == 'critical'" decoration-warning="severity == 'high'">
+                <field name="name"/>
+                <field name="exception_type"/>
+                <field name="document_reference" optional="show"/>
+                <field name="severity" widget="badge" decoration-success="severity == 'low'" decoration-warning="severity == 'medium'" decoration-danger="severity in ('high', 'critical')"/>
+                <field name="assigned_to" optional="show"/>
+                <field name="status" widget="badge" decoration-success="status == 'resolved'" decoration-info="status in ('in_review', 'open')" decoration-muted="status == 'dismissed'"/>
+                <field name="created_at" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Exceptions — Kanban View -->
+    <record id="view_gcg_exception_kanban" model="ir.ui.view">
+        <field name="name">gcg.exception.kanban</field>
+        <field name="model">gcg.exception</field>
+        <field name="arch" type="xml">
+            <kanban string="Exceptions" class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="exception_type"/>
+                <field name="severity"/>
+                <field name="status"/>
+                <field name="assigned_to"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                            </div>
+                            <div class="oe_kanban_content">
+                                <div><field name="exception_type"/></div>
+                                <div>
+                                    Severity:
+                                    <field name="severity" widget="badge"
+                                           decoration-success="severity == 'low'"
+                                           decoration-warning="severity == 'medium'"
+                                           decoration-danger="severity == 'high' or severity == 'critical'"/>
+                                </div>
+                                <div>
+                                    Status:
+                                    <field name="status" widget="badge"
+                                           decoration-success="status == 'resolved'"
+                                           decoration-info="status in ('in_review',)"
+                                           decoration-muted="status == 'dismissed'"/>
+                                </div>
+                                <div t-if="record.assigned_to.raw_value">
+                                    <field name="assigned_to"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Exceptions — Form View -->
+    <record id="view_gcg_exception_form" model="ir.ui.view">
+        <field name="name">gcg.exception.form</field>
+        <field name="model">gcg.exception</field>
+        <field name="arch" type="xml">
+            <form string="Exception">
+                <header>
+                    <button name="action_review" string="Start Review" type="object"
+                            invisible="status != 'open'" class="btn-primary"/>
+                    <button name="action_resolve" string="Resolve" type="object"
+                            invisible="status not in ('open', 'in_review')" class="btn-success"/>
+                    <button name="action_dismiss" string="Dismiss" type="object"
+                            invisible="status not in ('open', 'in_review')" class="btn-secondary"/>
+                    <field name="status" widget="statusbar"
+                           options="{'clickable': '0'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Exception summary..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Classification">
+                            <field name="exception_type" required="1"/>
+                            <field name="severity" required="1"/>
+                            <field name="assigned_to"/>
+                        </group>
+                        <group string="Source">
+                            <field name="document_reference"/>
+                            <field name="document_model"/>
+                            <field name="document_id"/>
+                        </group>
+                    </group>
+                    <group string="Resolution">
+                        <field name="resolution_note" nolabel="1" placeholder="Describe how this exception was resolved..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Exceptions — Search View -->
+    <record id="view_gcg_exception_search" model="ir.ui.view">
+        <field name="name">gcg.exception.search</field>
+        <field name="model">gcg.exception</field>
+        <field name="arch" type="xml">
+            <search string="Search Exceptions">
+                <field name="name"/>
+                <field name="exception_type"/>
+                <field name="document_reference"/>
+                <field name="assigned_to"/>
+                <separator/>
+                <filter name="open" string="Open" domain="[('status', '=', 'open')]"/>
+                <filter name="in_review" string="In Review" domain="[('status', '=', 'in_review')]"/>
+                <filter name="resolved" string="Resolved" domain="[('status', '=', 'resolved')]"/>
+                <filter name="dismissed" string="Dismissed" domain="[('status', '=', 'dismissed')]"/>
+                <separator/>
+                <filter name="critical" string="Critical" domain="[('severity', '=', 'critical')]"/>
+                <filter name="high" string="High" domain="[('severity', '=', 'high')]"/>
+                <separator/>
+                <filter name="my_exceptions" string="My Exceptions"
+                        domain="[('assigned_to', '=', uid)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Exceptions — Action -->
+    <record id="action_gcg_exception" model="ir.actions.act_window">
+        <field name="name">Exceptions</field>
+        <field name="res_model">gcg.exception</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="view_gcg_exception_search"/>
+    </record>
+
+</odoo>

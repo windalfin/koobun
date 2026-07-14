@@ -1,0 +1,6 @@
+odoo-venv/
+odoo-19.0+e.20260709/
+odoo.log
+__pycache__/
+*.pyc
+odoo-data/filestore/

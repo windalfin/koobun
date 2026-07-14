@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Block Tree View ───────────────────────────────── -->
+    <record id="view_estate_block_tree" model="ir.ui.view">
+        <field name="name">estate.block.tree</field>
+        <field name="model">estate.block</field>
+        <field name="arch" type="xml">
+            <list string="Blocks" decoration-warning="status == 'tbm'"
+                  decoration-success="status == 'tm'">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="estate_id"/>
+                <field name="afdeling_id"/>
+                <field name="area_ha_total"/>
+                <field name="area_ha_planted"/>
+                <field name="tahun_tanam"/>
+                <field name="status" widget="badge"
+                       decoration-warning="status == 'tbm'"
+                       decoration-success="status == 'tm'"/>
+                <field name="soil_class"/>
+                <field name="SPH"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Block Form View ───────────────────────────────── -->
+    <record id="view_estate_block_form" model="ir.ui.view">
+        <field name="name">estate.block.form</field>
+        <field name="model">estate.block</field>
+        <field name="arch" type="xml">
+            <form string="Block">
+                <header>
+                    <button name="action_set_tm" type="object"
+                            string="Set TM"
+                            class="oe_highlight"
+                            invisible="status != 'tbm'"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="tbm,tm"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="estate_id"/>
+                            <field name="afdeling_id"/>
+                        </group>
+                        <group>
+                            <field name="tahun_tanam"/>
+                            <field name="seed_source"/>
+                            <field name="SPH"/>
+                            <field name="planting_density"/>
+                            <field name="analytic_account_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Area">
+                            <group>
+                                <group>
+                                    <field name="area_ha_total"/>
+                                    <field name="area_ha_planted"/>
+                                </group>
+                                <group>
+                                    <field name="computed_gis_area"/>
+                                    <field name="area_variance_pct"
+                                           widget="percentage"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Classification">
+                            <group>
+                                <field name="soil_class"/>
+                                <field name="topography_class"/>
+                            </group>
+                        </page>
+                        <page string="GIS">
+                            <group>
+                                <field name="polygon_geojson"
+                                       widget="ace"
+                                       options="{'mode': 'json'}"/>
+                            </group>
+                        </page>
+                        <page string="Status History">
+                            <field name="status_history_ids">
+                                <list editable="bottom">
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="status"/>
+                                    <field name="approved_by"/>
+                                    <field name="effective"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Block Action ──────────────────────────────────── -->
+    <record id="action_estate_block" model="ir.actions.act_window">
+        <field name="name">Blocks</field>
+        <field name="res_model">estate.block</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first block!
+            </p>
+        </field>
+    </record>
+</odoo>

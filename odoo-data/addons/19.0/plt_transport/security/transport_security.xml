@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Transport Manager Group ─────────────────────────── -->
+    <record id="group_transport_manager" model="res.groups">
+        <field name="name">Transport Manager</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Full CRUD access to all transport and weighbridge data.</field>
+    </record>
+
+    <!-- ── Record Rules ─────────────────────────────────────── -->
+
+    <!-- SPB: read all -->
+    <record id="transport_spb_read_all" model="ir.rule">
+        <field name="name">SPB: read all</field>
+        <field name="model_id" ref="model_transport_spb"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Weighbridge Ticket: read all -->
+    <record id="transport_weighbridge_ticket_read_all" model="ir.rule">
+        <field name="name">Weighbridge Ticket: read all</field>
+        <field name="model_id" ref="model_transport_weighbridge_ticket"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Restan: read all -->
+    <record id="transport_restan_read_all" model="ir.rule">
+        <field name="name">Restan: read all</field>
+        <field name="model_id" ref="model_transport_restan"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Reconciliation: read all -->
+    <record id="transport_reconciliation_read_all" model="ir.rule">
+        <field name="name">Reconciliation: read all</field>
+        <field name="model_id" ref="model_transport_reconciliation"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

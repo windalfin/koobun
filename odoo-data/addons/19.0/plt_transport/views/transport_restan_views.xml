@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Restan List View ────────────────────────────────── -->
+    <record id="view_transport_restan_list" model="ir.ui.view">
+        <field name="name">transport.restan.list</field>
+        <field name="model">transport.restan</field>
+        <field name="arch" type="xml">
+            <list string="Restan (Uncollected FFB)"
+                  decoration-danger="escalated"
+                  decoration-warning="age_hours > 24 and not escalated">
+                <field name="date"/>
+                <field name="block_id"/>
+                <field name="tph_id"/>
+                <field name="janjang_count"/>
+                <field name="estimated_kg"/>
+                <field name="age_hours" widget="float_time"/>
+                <field name="escalated" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Restan Form View ────────────────────────────────── -->
+    <record id="view_transport_restan_form" model="ir.ui.view">
+        <field name="name">transport.restan.form</field>
+        <field name="model">transport.restan</field>
+        <field name="arch" type="xml">
+            <form string="Restan">
+                <header>
+                    <button name="action_escalate" type="object"
+                            string="Escalate" class="oe_highlight"
+                            invisible="escalated"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="block_id"/>
+                            <field name="tph_id"/>
+                        </group>
+                        <group>
+                            <field name="janjang_count"/>
+                            <field name="estimated_kg"/>
+                            <field name="age_hours" widget="float_time"/>
+                            <field name="escalated"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Restan Search View ──────────────────────────────── -->
+    <record id="view_transport_restan_search" model="ir.ui.view">
+        <field name="name">transport.restan.search</field>
+        <field name="model">transport.restan</field>
+        <field name="arch" type="xml">
+            <search string="Search Restan">
+                <field name="block_id"/>
+                <field name="tph_id"/>
+                <filter name="not_escalated" string="Not Escalated"
+                        domain="[('escalated','=',False)]"/>
+                <filter name="escalated_filter" string="Escalated"
+                        domain="[('escalated','=',True)]"/>
+                <filter name="today" string="Today"
+                        domain="[('date','=',context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_block" string="Block"
+                        context="{'group_by':'block_id'}"/>
+                <filter name="group_date" string="Date"
+                        context="{'group_by':'date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── Restan Action ───────────────────────────────────── -->
+    <record id="action_transport_restan" model="ir.actions.act_window">
+        <field name="name">Restan (Uncollected FFB)</field>
+        <field name="res_model">transport.restan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

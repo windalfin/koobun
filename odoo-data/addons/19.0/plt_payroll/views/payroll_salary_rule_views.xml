@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Payroll Salary Rule Tree View ──────────────────── -->
+    <record id="view_payroll_salary_rule_tree" model="ir.ui.view">
+        <field name="name">payroll.salary_rule.tree</field>
+        <field name="model">payroll.salary_rule</field>
+        <field name="arch" type="xml">
+            <list string="Payroll Salary Rules">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="rule_type"/>
+                <field name="auto_compute"/>
+                <field name="source_model"/>
+                <field name="sequence"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Payroll Salary Rule Form View ──────────────────── -->
+    <record id="view_payroll_salary_rule_form" model="ir.ui.view">
+        <field name="name">payroll.salary_rule.form</field>
+        <field name="model">payroll.salary_rule</field>
+        <field name="arch" type="xml">
+            <form string="Payroll Salary Rule">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="struct_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="rule_type"/>
+                            <field name="auto_compute"/>
+                            <field name="source_model"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Computation">
+                        <group>
+                            <field name="category_id"/>
+                            <field name="condition_select"/>
+                            <field name="amount_select"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Payroll Salary Rule Action ─────────────────────── -->
+    <record id="action_payroll_salary_rule" model="ir.actions.act_window">
+        <field name="name">Payroll Salary Rules</field>
+        <field name="res_model">payroll.salary_rule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

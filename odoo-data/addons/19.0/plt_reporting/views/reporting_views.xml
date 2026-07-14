@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_report_daily_production_tree" model="ir.ui.view">
+        <field name="name">report.daily_production.tree</field>
+        <field name="model">report.daily_production</field>
+        <field name="arch" type="xml">
+            <list string="Daily Production" create="0" edit="0" delete="0">
+                <field name="date"/>
+                <field name="block_id"/>
+                <field name="harvester_id"/>
+                <field name="janjang_count"/>
+                <field name="brondolan_kg"/>
+                <field name="total_kg"/>
+                <field name="bjr"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_report_monthly_yield_tree" model="ir.ui.view">
+        <field name="name">report.monthly_yield.tree</field>
+        <field name="model">report.monthly_yield</field>
+        <field name="arch" type="xml">
+            <list string="Monthly Yield" create="0" edit="0" delete="0">
+                <field name="year"/>
+                <field name="month"/>
+                <field name="block_id"/>
+                <field name="area_ha"/>
+                <field name="total_kg"/>
+                <field name="yield_kg_per_ha"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_report_daily_restan_tree" model="ir.ui.view">
+        <field name="name">report.daily_restan.tree</field>
+        <field name="model">report.daily_restan</field>
+        <field name="arch" type="xml">
+            <list string="Daily Restan" create="0" edit="0" delete="0">
+                <field name="date"/>
+                <field name="block_id"/>
+                <field name="tph_id"/>
+                <field name="janjang_count"/>
+                <field name="estimated_kg"/>
+                <field name="age_hours"/>
+                <field name="escalated"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_report_monthly_cost_tree" model="ir.ui.view">
+        <field name="name">report.monthly_cost.tree</field>
+        <field name="model">report.monthly_cost</field>
+        <field name="arch" type="xml">
+            <list string="Monthly Cost" create="0" edit="0" delete="0">
+                <field name="year"/>
+                <field name="month"/>
+                <field name="block_id"/>
+                <field name="total_cost"/>
+                <field name="total_kg"/>
+                <field name="cost_per_kg"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

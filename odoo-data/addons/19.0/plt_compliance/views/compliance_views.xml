@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_compliance_ispo_tree" model="ir.ui.view">
+        <field name="name">compliance.ispo_evidence.tree</field>
+        <field name="model">compliance.ispo_evidence</field>
+        <field name="arch" type="xml">
+            <list string="ISPO Evidence">
+                <field name="principle"/><field name="criterion"/>
+                <field name="description"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_compliance_ispo_form" model="ir.ui.view">
+        <field name="name">compliance.ispo_evidence.form</field>
+        <field name="model">compliance.ispo_evidence</field>
+        <field name="arch" type="xml">
+            <form string="ISPO Evidence">
+                <sheet>
+                    <group>
+                        <group><field name="principle"/><field name="criterion"/></group>
+                        <group><field name="status"/><field name="verified_by_id"/></group>
+                    </group>
+                    <group string="Evidence"><field name="evidence_doc" widget="binary"/></group>
+                    <group string="Notes"><field name="notes"/></group>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_compliance_eudr_tree" model="ir.ui.view">
+        <field name="name">compliance.eudr_export.tree</field>
+        <field name="model">compliance.eudr_export</field>
+        <field name="arch" type="xml">
+            <list string="EUDR Export">
+                <field name="export_date"/><field name="block_id"/>
+                <field name="total_kg"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_compliance_k3_tree" model="ir.ui.view">
+        <field name="name">compliance.k3_incident.tree</field>
+        <field name="model">compliance.k3_incident</field>
+        <field name="arch" type="xml">
+            <list string="K3 Incidents">
+                <field name="incident_date"/><field name="incident_type"/>
+                <field name="severity" widget="badge"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_compliance_env_tree" model="ir.ui.view">
+        <field name="name">compliance.environmental.tree</field>
+        <field name="model">compliance.environmental</field>
+        <field name="arch" type="xml">
+            <list string="Environmental Records">
+                <field name="date"/><field name="record_type"/>
+                <field name="block_id"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+</odoo>
