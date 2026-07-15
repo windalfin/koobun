@@ -6,3 +6,5 @@ from . import harvest_tph_record
 from . import harvest_quality_event
 from . import harvest_premi_config
 from . import harvest_denda_config
+from . import harvest_inspection
+from . import harvest_premi_statement

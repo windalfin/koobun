@@ -30,4 +30,11 @@
     </record>
     <menuitem id="menu_compliance_env" parent="menu_compliance_root" name="Environmental" sequence="40" action="action_compliance_env"/>
 
+    <record id="action_compliance_k3_apd" model="ir.actions.act_window">
+        <field name="name">Penyerahan APD</field>
+        <field name="res_model">compliance.k3_apd</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_compliance_k3_apd" parent="menu_compliance_root" name="Penyerahan APD" sequence="35" action="action_compliance_k3_apd"/>
+
 </odoo>

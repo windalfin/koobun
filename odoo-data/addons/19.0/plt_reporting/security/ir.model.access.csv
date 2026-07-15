@@ -7,3 +7,7 @@ access_report_daily_restan_user,report.daily_restan.user,model_report_daily_rest
 access_report_daily_restan_manager,report.daily_restan.manager,model_report_daily_restan,group_reporting_manager,1,0,0,0
 access_report_monthly_cost_user,report.monthly_cost.user,model_report_monthly_cost,base.group_user,1,0,0,0
 access_report_monthly_cost_manager,report.monthly_cost.manager,model_report_monthly_cost,group_reporting_manager,1,0,0,0
+access_report_lhm_user,report.lhm.user,model_report_lhm,base.group_user,1,0,0,0
+access_report_lhm_manager,report.lhm.manager,model_report_lhm,group_reporting_manager,1,0,0,0
+access_report_payslip_summary_user,report.payslip_summary.user,model_report_payslip_summary,base.group_user,1,0,0,0
+access_report_payslip_summary_manager,report.payslip_summary.manager,model_report_payslip_summary,group_reporting_manager,1,0,0,0

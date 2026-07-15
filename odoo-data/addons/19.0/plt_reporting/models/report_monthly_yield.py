@@ -18,6 +18,7 @@ class ReportMonthlyYield(models.Model):
 
     def init(self):
         self.env.cr.execute("""
+            DROP VIEW IF EXISTS report_monthly_yield;
             CREATE OR REPLACE VIEW report_monthly_yield AS (
                 SELECT
                     row_number() OVER () AS id,
@@ -25,14 +26,13 @@ class ReportMonthlyYield(models.Model):
                     EXTRACT(MONTH FROM hr.date)::TEXT AS month,
                     eb.name AS block_name,
                     eb.area_ha_planted AS area_ha,
-                    COALESCE(SUM(COALESCE(wt.net_kg, 0)), 0) AS total_kg,
+                    COALESCE(SUM(COALESCE(hr.total_tonnage, 0) * 1000), 0) AS total_kg,
                     CASE WHEN eb.area_ha_planted > 0
-                         THEN COALESCE(SUM(COALESCE(wt.net_kg, 0)), 0) / eb.area_ha_planted
+                         THEN COALESCE(SUM(COALESCE(hr.total_tonnage, 0) * 1000), 0) / eb.area_ha_planted
                          ELSE 0 END AS yield_kg_per_ha
                 FROM harvest_tph_record hr
                 JOIN estate_tph et ON et.id = hr.tph_id
                 JOIN estate_block eb ON eb.id = et.block_id
-                LEFT JOIN transport_weighbridge_ticket wt ON wt.spb_id IS NOT NULL
-                GROUP BY year, month, eb.name, eb.area_ha_planted
+                GROUP BY EXTRACT(YEAR FROM hr.date), EXTRACT(MONTH FROM hr.date), eb.name, eb.area_ha_planted
             )
         """)

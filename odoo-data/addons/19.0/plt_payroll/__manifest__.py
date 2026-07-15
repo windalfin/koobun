@@ -34,6 +34,8 @@ PLT-08 manages plantation payroll for all worker classes:
         "views/payroll_salary_rule_views.xml",
         "views/payroll_payroll_batch_views.xml",
         "views/payroll_payslip_line_views.xml",
+        "views/payroll_ptkp_table_views.xml",
+        "views/payroll_thr_config_views.xml",
         "views/payroll_menus.xml",
     ],
     "installable": True,

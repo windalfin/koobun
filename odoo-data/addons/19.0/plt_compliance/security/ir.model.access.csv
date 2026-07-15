@@ -7,3 +7,5 @@ access_compliance_k3_user,compliance.k3_incident.user,model_compliance_k3_incide
 access_compliance_k3_manager,compliance.k3_incident.manager,model_compliance_k3_incident,group_compliance_manager,1,1,1,1
 access_compliance_env_user,compliance.environmental.user,model_compliance_environmental,base.group_user,1,0,0,0
 access_compliance_env_manager,compliance.environmental.manager,model_compliance_environmental,group_compliance_manager,1,1,1,1
+access_compliance_k3_apd_user,compliance.k3_apd.user,model_compliance_k3_apd,base.group_user,1,0,0,0
+access_compliance_k3_apd_manager,compliance.k3_apd.manager,model_compliance_k3_apd,group_compliance_manager,1,1,1,1

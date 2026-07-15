@@ -42,6 +42,18 @@
               action="action_payroll_salary_rule"
               sequence="30"/>
 
+    <menuitem id="menu_payroll_ptkp_table"
+              name="Tabel PTKP"
+              parent="menu_payroll_configuration"
+              action="action_payroll_ptkp_table"
+              sequence="40"/>
+
+    <menuitem id="menu_payroll_thr_config"
+              name="Konfigurasi THR"
+              parent="menu_payroll_configuration"
+              action="action_payroll_thr_config"
+              sequence="50"/>
+
     <menuitem id="menu_payroll_processing"
               name="Processing"
               parent="menu_payroll_root"

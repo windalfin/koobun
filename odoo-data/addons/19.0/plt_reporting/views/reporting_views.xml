@@ -24,7 +24,8 @@
                 <field name="month"/>
                 <field name="block_name"/>
                 <field name="area_ha"/>
-                <field name="janjang_total"/>
+                <field name="total_kg"/>
+                <field name="yield_kg_per_ha"/>
             </list>
         </field>
     </record>
@@ -39,6 +40,7 @@
                 <field name="tph_code"/>
                 <field name="janjang_count"/>
                 <field name="estimated_kg"/>
+                <field name="age_hours"/>
                 <field name="escalated"/>
             </list>
         </field>
@@ -53,6 +55,37 @@
                 <field name="month"/>
                 <field name="block_name"/>
                 <field name="total_cost"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_report_lhm_tree" model="ir.ui.view">
+        <field name="name">report.lhm.tree</field>
+        <field name="model">report.lhm</field>
+        <field name="arch" type="xml">
+            <list string="Laporan Harian Mandor" create="0" edit="0" delete="0">
+                <field name="date"/>
+                <field name="mandor_name"/>
+                <field name="block_name"/>
+                <field name="activity"/>
+                <field name="worker_count"/>
+                <field name="total_kg"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_report_payslip_summary_tree" model="ir.ui.view">
+        <field name="name">report.payslip_summary.tree</field>
+        <field name="model">report.payslip_summary</field>
+        <field name="arch" type="xml">
+            <list string="Ringkasan Penggajian" create="0" edit="0" delete="0">
+                <field name="year"/>
+                <field name="month"/>
+                <field name="employee_name"/>
+                <field name="total_hk"/>
+                <field name="gross_pay"/>
+                <field name="total_deductions"/>
+                <field name="net_pay"/>
             </list>
         </field>
     </record>

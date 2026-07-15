@@ -9,3 +9,5 @@ access_sales_invoice_user,sales.invoice.user,model_sales_invoice,base.group_user
 access_sales_invoice_manager,sales.invoice.manager,model_sales_invoice,group_sales_manager,1,1,1,1
 access_sales_sortasi_analysis_user,sales.sortasi_analysis.user,model_sales_sortasi_analysis,base.group_user,1,0,0,0
 access_sales_sortasi_analysis_manager,sales.sortasi_analysis.manager,model_sales_sortasi_analysis,group_sales_manager,1,1,1,1
+access_sales_revenue_distribution_user,sales.revenue_distribution.user,model_sales_revenue_distribution,base.group_user,1,0,0,0
+access_sales_revenue_distribution_manager,sales.revenue_distribution.manager,model_sales_revenue_distribution,group_sales_manager,1,1,1,1

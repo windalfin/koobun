@@ -27,6 +27,8 @@ PLT-05 manages the complete harvest chain for oil palm estates:
         "views/harvest_quality_event_views.xml",
         "views/harvest_premi_config_views.xml",
         "views/harvest_denda_config_views.xml",
+        "views/harvest_inspection_views.xml",
+        "views/harvest_premi_statement_views.xml",
         "views/harvest_menus.xml",
     ],
     "installable": True,

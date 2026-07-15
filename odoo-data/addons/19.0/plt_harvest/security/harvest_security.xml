@@ -71,4 +71,20 @@
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('base.group_user'))]"/>
     </record>
+
+    <!-- Inspection: read all -->
+    <record id="rule_inspection_read_all" model="ir.rule">
+        <field name="name">Inspection: read all</field>
+        <field name="model_id" ref="model_harvest_inspection"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Premi Statement: read all -->
+    <record id="rule_premi_statement_read_all" model="ir.rule">
+        <field name="name">Premi Statement: read all</field>
+        <field name="model_id" ref="model_harvest_premi_statement"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
 </odoo>

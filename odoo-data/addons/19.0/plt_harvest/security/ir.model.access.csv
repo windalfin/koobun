@@ -13,3 +13,7 @@ access_harvest_premi_config_user,harvest.premi_config.user,model_harvest_premi_c
 access_harvest_premi_config_manager,harvest.premi_config.manager,model_harvest_premi_config,group_harvest_manager,1,1,1,1
 access_harvest_denda_config_user,harvest.denda_config.user,model_harvest_denda_config,base.group_user,1,0,0,0
 access_harvest_denda_config_manager,harvest.denda_config.manager,model_harvest_denda_config,group_harvest_manager,1,1,1,1
+access_harvest_inspection_user,harvest.inspection.user,model_harvest_inspection,base.group_user,1,0,0,0
+access_harvest_inspection_manager,harvest.inspection.manager,model_harvest_inspection,group_harvest_manager,1,1,1,1
+access_harvest_premi_statement_user,harvest.premi_statement.user,model_harvest_premi_statement,base.group_user,1,0,0,0
+access_harvest_premi_statement_manager,harvest.premi_statement.manager,model_harvest_premi_statement,group_harvest_manager,1,1,1,1

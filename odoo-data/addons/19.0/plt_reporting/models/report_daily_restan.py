@@ -19,6 +19,7 @@ class ReportDailyRestan(models.Model):
 
     def init(self):
         self.env.cr.execute("""
+            DROP VIEW IF EXISTS report_daily_restan;
             CREATE OR REPLACE VIEW report_daily_restan AS (
                 SELECT
                     row_number() OVER () AS id,
@@ -27,7 +28,7 @@ class ReportDailyRestan(models.Model):
                     et.code AS tph_code,
                     tr.janjang_count,
                     tr.estimated_kg,
-                    tr.age_hours,
+                    EXTRACT(EPOCH FROM (NOW() - tr.create_date)) / 3600.0 AS age_hours,
                     tr.escalated
                 FROM transport_restan tr
                 LEFT JOIN estate_tph et ON et.id = tr.tph_id

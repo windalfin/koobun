@@ -18,6 +18,7 @@ PLT-09 manages plasma smallholder programs:
         "security/plasma_security.xml",
         "security/ir.model.access.csv",
         "views/plasma_views.xml",
+        "views/disbun_price_views.xml",
         "views/plasma_menus.xml",
     ],
     "installable": True,

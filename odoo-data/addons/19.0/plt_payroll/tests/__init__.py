@@ -6,3 +6,5 @@ from . import test_payroll_batch
 from . import test_payslip_line
 from . import test_worker_contract
 from . import test_salary_rule
+from . import test_ptkp_table
+from . import test_thr_config

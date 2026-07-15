@@ -13,3 +13,7 @@ access_payroll_payroll_batch_user,payroll.payroll_batch.user,model_payroll_payro
 access_payroll_payroll_batch_manager,payroll.payroll_batch.manager,model_payroll_payroll_batch,plt_payroll.group_payroll_manager,1,1,1,1
 access_payroll_payslip_line_user,payroll.payslip_line.user,model_payroll_payslip_line,base.group_user,1,0,0,0
 access_payroll_payslip_line_manager,payroll.payslip_line.manager,model_payroll_payslip_line,plt_payroll.group_payroll_manager,1,1,1,1
+access_payroll_ptkp_table_user,payroll.ptkp_table.user,model_payroll_ptkp_table,base.group_user,1,0,0,0
+access_payroll_ptkp_table_manager,payroll.ptkp_table.manager,model_payroll_ptkp_table,plt_payroll.group_payroll_manager,1,1,1,1
+access_payroll_thr_config_user,payroll.thr_config.user,model_payroll_thr_config,base.group_user,1,0,0,0
+access_payroll_thr_config_manager,payroll.thr_config.manager,model_payroll_thr_config,plt_payroll.group_payroll_manager,1,1,1,1

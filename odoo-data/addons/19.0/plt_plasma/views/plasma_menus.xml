@@ -38,4 +38,11 @@
     </record>
     <menuitem id="menu_plasma_farmer_statement" parent="menu_plasma_root" name="Farmer Statements" sequence="50" action="action_plasma_farmer_statement"/>
 
+    <record id="action_plasma_disbun_price" model="ir.actions.act_window">
+        <field name="name">Harga Disbun</field>
+        <field name="res_model">plasma.disbun_price</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_plasma_disbun_price" parent="menu_plasma_root" name="Harga Disbun (Per Kelompok Umur)" sequence="60" action="action_plasma_disbun_price"/>
+
 </odoo>

@@ -60,4 +60,49 @@
             </list>
         </field>
     </record>
+
+    <!-- K3 APD / PPE issue records -->
+    <record id="view_compliance_k3_apd_tree" model="ir.ui.view">
+        <field name="name">compliance.k3_apd.tree</field>
+        <field name="model">compliance.k3_apd</field>
+        <field name="arch" type="xml">
+            <list string="Penyerahan APD">
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="apd_type"/>
+                <field name="quantity_issued"/>
+                <field name="condition" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_compliance_k3_apd_form" model="ir.ui.view">
+        <field name="name">compliance.k3_apd.form</field>
+        <field name="model">compliance.k3_apd</field>
+        <field name="arch" type="xml">
+            <form string="Penyerahan APD">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="employee_id"/>
+                            <field name="apd_type"/>
+                        </group>
+                        <group>
+                            <field name="quantity_issued"/>
+                            <field name="condition"/>
+                        </group>
+                    </group>
+                    <group string="Catatan">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
 </odoo>

@@ -18,6 +18,7 @@ PLT-02 manages the plantation planning hierarchy:
         "security/planning_security.xml",
         "security/ir.model.access.csv",
         "views/planning_views.xml",
+        "views/budget_actual_views.xml",
         "views/planning_menus.xml",
     ],
     "installable": True,

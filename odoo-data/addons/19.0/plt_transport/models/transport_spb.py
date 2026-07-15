@@ -131,6 +131,44 @@ class TransportSPB(models.Model):
                 'SPB number %s already exists!', number
             ))
 
+    def _check_spb_gap(self):
+        """Check if the previous SPB number in the sequence exists.
+
+        Parses the numeric suffix of this SPB's number, derives the
+        expected previous number, and logs an exception on the chatter
+        if that previous SPB is missing.
+
+        Returns True if a gap was detected, False otherwise.
+        """
+        self.ensure_one()
+        import re
+        match = re.match(r'^(.*?)(\d+)$', self.number or '')
+        if not match:
+            return False
+        prefix, num_str = match.groups()
+        try:
+            current_num = int(num_str)
+        except ValueError:
+            return False
+        if current_num <= 1:
+            return False
+        prev_num_str = str(current_num - 1).zfill(len(num_str))
+        prev_number = prefix + prev_num_str
+        prev_spb = self.search([
+            ('number', '=', prev_number),
+            ('id', '!=', self.id),
+        ], limit=1)
+        if not prev_spb:
+            self.message_post(
+                body=_(
+                    'SPB Gap Detection: Previous SPB <b>%s</b> is missing. '
+                    'Please verify the SPB numbering sequence.',
+                    prev_number,
+                ),
+            )
+            return True
+        return False
+
     # ── State Transitions ────────────────────────────────────
     def action_issue(self):
         for spb in self:

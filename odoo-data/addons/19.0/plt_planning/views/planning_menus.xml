@@ -49,4 +49,15 @@
               sequence="40"
               action="action_plan_rkh"/>
 
+    <record id="action_plan_budget_actual" model="ir.actions.act_window">
+        <field name="name">Anggaran vs Realisasi</field>
+        <field name="res_model">plan.budget_actual</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_plan_budget_actual"
+              parent="menu_planning_root"
+              name="Anggaran vs Realisasi"
+              sequence="50"
+              action="action_plan_budget_actual"/>
+
 </odoo>
