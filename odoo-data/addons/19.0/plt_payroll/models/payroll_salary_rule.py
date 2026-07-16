@@ -4,10 +4,11 @@ from odoo import models, fields, api
 
 class PayrollSalaryRule(models.Model):
     _name = 'payroll.salary_rule'
-    _description = 'Salary Rule Extension'
-    _inherit = ['hr.salary.rule', 'mail.thread']
+    _description = 'Salary Rule (Standalone)'
+    _inherit = ['mail.thread']
 
-    # ── Rule Type ───────────────────────────────────────────
+    name = fields.Char(string='Rule Name', required=True, tracking=True)
+    code = fields.Char(string='Rule Code', required=True, tracking=True)
     rule_type = fields.Selection(
         selection=[
             ('daily_wage', 'Daily Wage'),
@@ -21,30 +22,29 @@ class PayrollSalaryRule(models.Model):
         string='Rule Type',
         tracking=True,
     )
-
-    # ── Auto-Compute Flag ───────────────────────────────────
     auto_compute = fields.Boolean(
         string='Auto Compute',
         default=True,
         tracking=True,
-        help='If enabled, this rule is automatically included in payroll '
-             'computation.',
+        help='If enabled, this rule is automatically included in payroll computation.',
     )
-
-    # ── Source Model (for cross-module data integration) ────
     source_model = fields.Char(
         string='Source Model',
         tracking=True,
-        help='Technical name of the source model providing data for this rule '
-             '(e.g. plt_harvest for premi/denda).',
+        help='Technical name of the source model providing data for this rule.',
     )
+    sequence = fields.Integer(string='Sequence', default=10)
+    active = fields.Boolean(default=True)
+    note = fields.Text(string='Description')
 
-    # ── Create ──────────────────────────────────────────────
+    _sql_constraints = [
+        ('code_uniq', 'unique(code)', 'Rule code must be unique!'),
+    ]
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get('rule_type') and not vals.get('source_model'):
-                # Auto-set source_model based on rule_type
                 mapping = {
                     'premi': 'plt_harvest',
                     'denda': 'plt_harvest',
