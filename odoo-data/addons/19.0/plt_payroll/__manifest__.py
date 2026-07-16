@@ -18,7 +18,6 @@ PLT-08 manages plantation payroll for all worker classes:
         "base",
         "mail",
         "hr",
-        "hr_payroll",
         "plt_estate",
         "plt_harvest",
         "plt_gcg",
