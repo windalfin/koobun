@@ -4,3 +4,5 @@ odoo.log
 __pycache__/
 *.pyc
 odoo-data/filestore/
+odoo-data/sessions/
+odoo-data/*.log
