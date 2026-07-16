@@ -50,6 +50,6 @@
     <record id="action_payroll_pph21_config" model="ir.actions.act_window">
         <field name="name">PPh 21 TER Tables</field>
         <field name="res_model">payroll.pph21_config</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

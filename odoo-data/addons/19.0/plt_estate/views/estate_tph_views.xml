@@ -42,6 +42,6 @@
     <record id="action_estate_tph" model="ir.actions.act_window">
         <field name="name">TPHs</field>
         <field name="res_model">estate.tph</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

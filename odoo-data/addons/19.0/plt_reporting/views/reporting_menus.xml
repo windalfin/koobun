@@ -8,7 +8,7 @@
     <record id="action_report_daily_production" model="ir.actions.act_window">
         <field name="name">Daily Production</field>
         <field name="res_model">report.daily_production</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
     </record>
     <menuitem id="menu_report_daily_production"
               parent="menu_reporting_root"
@@ -19,7 +19,7 @@
     <record id="action_report_daily_restan" model="ir.actions.act_window">
         <field name="name">Daily Restan</field>
         <field name="res_model">report.daily_restan</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
     </record>
     <menuitem id="menu_report_daily_restan"
               parent="menu_reporting_root"
@@ -30,7 +30,7 @@
     <record id="action_report_monthly_yield" model="ir.actions.act_window">
         <field name="name">Monthly Yield</field>
         <field name="res_model">report.monthly_yield</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
     </record>
     <menuitem id="menu_report_monthly_yield"
               parent="menu_reporting_root"
@@ -41,7 +41,7 @@
     <record id="action_report_monthly_cost" model="ir.actions.act_window">
         <field name="name">Monthly Cost</field>
         <field name="res_model">report.monthly_cost</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
     </record>
     <menuitem id="menu_report_monthly_cost"
               parent="menu_reporting_root"
@@ -52,7 +52,7 @@
     <record id="action_report_lhm" model="ir.actions.act_window">
         <field name="name">Laporan Harian Mandor</field>
         <field name="res_model">report.lhm</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
     </record>
     <menuitem id="menu_report_lhm"
               parent="menu_reporting_root"
@@ -63,7 +63,7 @@
     <record id="action_report_payslip_summary" model="ir.actions.act_window">
         <field name="name">Ringkasan Penggajian</field>
         <field name="res_model">report.payslip_summary</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
     </record>
     <menuitem id="menu_report_payslip_summary"
               parent="menu_reporting_root"

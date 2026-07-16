@@ -67,6 +67,6 @@
     <record id="action_payroll_wage_master" model="ir.actions.act_window">
         <field name="name">Wage Masters</field>
         <field name="res_model">payroll.wage_master</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

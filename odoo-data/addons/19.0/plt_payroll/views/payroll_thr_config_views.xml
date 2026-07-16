@@ -79,6 +79,6 @@
     <record id="action_payroll_thr_config" model="ir.actions.act_window">
         <field name="name">Konfigurasi THR</field>
         <field name="res_model">payroll.thr_config</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

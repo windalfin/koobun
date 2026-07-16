@@ -76,6 +76,6 @@
     <record id="action_payroll_ptkp_table" model="ir.actions.act_window">
         <field name="name">Tabel PTKP</field>
         <field name="res_model">payroll.ptkp_table</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

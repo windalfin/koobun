@@ -93,7 +93,7 @@
     <record id="action_gcg_authority_matrix" model="ir.actions.act_window">
         <field name="name">Authority Matrix</field>
         <field name="res_model">gcg.authority.matrix</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_gcg_authority_matrix_search"/>
     </record>
 

@@ -79,7 +79,7 @@
     <record id="action_estate_census" model="ir.actions.act_window">
         <field name="name">Census</field>
         <field name="res_model">estate.census</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create the first census record!
