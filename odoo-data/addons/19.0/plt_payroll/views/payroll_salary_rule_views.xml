@@ -49,26 +49,6 @@
         </field>
     </record>
 
-    <!-- ── Payroll Salary Rule Search View ────────────────── -->
-    <record id="view_payroll_salary_rule_search" model="ir.ui.view">
-        <field name="name">payroll.salary_rule.search</field>
-        <field name="model">payroll.salary_rule</field>
-        <field name="arch" type="xml">
-            <search string="Search Salary Rules">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="rule_type"/>
-                <filter name="filter_daily_wage" string="Daily Wage" domain="[('rule_type','=','daily_wage')]"/>
-                <filter name="filter_premi" string="Premi" domain="[('rule_type','=','premi')]"/>
-                <filter name="filter_denda" string="Denda" domain="[('rule_type','=','denda')]"/>
-                <filter name="filter_thr" string="THR" domain="[('rule_type','=','THR')]"/>
-                <group expand="0" string="Group By">
-                    <filter string="Rule Type" name="group_rule_type" context="{'group_by':'rule_type'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
-
     <!-- ── Payroll Salary Rule Action ─────────────────────── -->
     <record id="action_payroll_salary_rule" model="ir.actions.act_window">
         <field name="name">Payroll Salary Rules</field>
