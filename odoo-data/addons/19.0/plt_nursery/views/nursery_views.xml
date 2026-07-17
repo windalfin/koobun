@@ -109,4 +109,35 @@
         </field>
     </record>
 
+    <record id="view_nursery_seedling_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">nursery.seedling.form</field>
+        <field name="model">nursery.seedling</field>
+        <field name="arch" type="xml">
+            <form string="Seedling">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="tag_number"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="transfer_date"/>
+                        </group>
+                    </group>
+                    <group string="Keterangan">
+                        <field name="cull_reason" placeholder="Alasan culling..."/>
+                        <field name="notes" placeholder="Catatan..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
 </odoo>

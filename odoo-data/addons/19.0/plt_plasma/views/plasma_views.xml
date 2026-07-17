@@ -176,4 +176,36 @@
         </field>
     </record>
 
+    <record id="view_plasma_siperibun_report_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">plasma.siperibun_report.form</field>
+        <field name="model">plasma.siperibun_report</field>
+        <field name="arch" type="xml">
+            <form string="Laporan SIPERIBUN">
+                <sheet>
+                    <group>
+                        <group string="Periode">
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                        <group string="Rekapitulasi">
+                            <field name="total_farmers"/>
+                            <field name="total_delivery_kg"/>
+                            <field name="total_payment"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Catatan">
+                        <field name="notes" placeholder="Catatan laporan..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
 </odoo>
