@@ -20,6 +20,7 @@
 
     <!-- SoD Rules — Form View -->
     <record id="view_gcg_sod_rule_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">gcg.sod.rule.form</field>
         <field name="model">gcg.sod.rule</field>
         <field name="arch" type="xml">

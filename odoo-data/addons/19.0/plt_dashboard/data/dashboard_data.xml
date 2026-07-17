@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ========================================================== -->
+        <!-- 1. ir.actions.act_window — one per module's main model     -->
+        <!-- ========================================================== -->
+
+        <!-- Estate -->
+        <record id="action_estate_blocks_list" model="ir.actions.act_window">
+            <field name="name">Estate Blocks</field>
+            <field name="res_model">estate.block</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_estate_estates_list" model="ir.actions.act_window">
+            <field name="name">Estates</field>
+            <field name="res_model">estate.estate</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Harvest -->
+        <record id="action_harvest_tph_list" model="ir.actions.act_window">
+            <field name="name">Harvest TPH Records</field>
+            <field name="res_model">harvest.tph_record</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_harvest_taksasi_list" model="ir.actions.act_window">
+            <field name="name">Harvest Taksasi</field>
+            <field name="res_model">harvest.taksasi</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Transport -->
+        <record id="action_transport_spb_list" model="ir.actions.act_window">
+            <field name="name">SPB Records</field>
+            <field name="res_model">transport.spb</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_transport_weighbridge_list" model="ir.actions.act_window">
+            <field name="name">Weighbridge Tickets</field>
+            <field name="res_model">transport.weighbridge_ticket</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Sales -->
+        <record id="action_sales_mill_reception_list" model="ir.actions.act_window">
+            <field name="name">Mill Receptions</field>
+            <field name="res_model">sales.mill_reception</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_sales_invoice_list" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">sales.invoice</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Payroll -->
+        <record id="action_payroll_contracts_list" model="ir.actions.act_window">
+            <field name="name">Worker Contracts</field>
+            <field name="res_model">payroll.worker_contract</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_payroll_batches_list" model="ir.actions.act_window">
+            <field name="name">Payroll Batches</field>
+            <field name="res_model">payroll.payroll_batch</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Upkeep -->
+        <record id="action_upkeep_bpb_list" model="ir.actions.act_window">
+            <field name="name">Work Orders (BPB)</field>
+            <field name="res_model">upkeep.bpb</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_upkeep_bkm_list" model="ir.actions.act_window">
+            <field name="name">BKM Records</field>
+            <field name="res_model">upkeep.bkm</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Planning -->
+        <record id="action_plan_rkap_list" model="ir.actions.act_window">
+            <field name="name">RKAP Records</field>
+            <field name="res_model">plan.rkap</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_plan_rkh_list" model="ir.actions.act_window">
+            <field name="name">RKH Records</field>
+            <field name="res_model">plan.rkh</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Plasma -->
+        <record id="action_plasma_farmers_list" model="ir.actions.act_window">
+            <field name="name">Plasma Farmers</field>
+            <field name="res_model">plasma.farmer</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_plasma_koperasi_list" model="ir.actions.act_window">
+            <field name="name">Plasma Koperasi</field>
+            <field name="res_model">plasma.koperasi</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Compliance -->
+        <record id="action_compliance_ispo_list" model="ir.actions.act_window">
+            <field name="name">ISPO Evidence</field>
+            <field name="res_model">compliance.ispo_evidence</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_compliance_k3_list" model="ir.actions.act_window">
+            <field name="name">K3 Incidents</field>
+            <field name="res_model">compliance.k3_incident</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Nursery -->
+        <record id="action_nursery_batches_list" model="ir.actions.act_window">
+            <field name="name">Nursery Batches</field>
+            <field name="res_model">nursery.batch</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_nursery_seedlings_list" model="ir.actions.act_window">
+            <field name="name">Nursery Seedlings</field>
+            <field name="res_model">nursery.seedling</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Reporting -->
+        <record id="action_reporting_lhm_list" model="ir.actions.act_window">
+            <field name="name">LHM Reports</field>
+            <field name="res_model">report.lhm</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_reporting_daily_production_list" model="ir.actions.act_window">
+            <field name="name">Daily Production</field>
+            <field name="res_model">report.daily_production</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- GCG -->
+        <record id="action_gcg_audit_logs_list" model="ir.actions.act_window">
+            <field name="name">GCG Audit Logs</field>
+            <field name="res_model">gcg.audit.log</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_gcg_exceptions_list" model="ir.actions.act_window">
+            <field name="name">GCG Exceptions</field>
+            <field name="res_model">gcg.exception</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+    </data>
+
+    <data noupdate="1">
+
+        <!-- ========================================================== -->
+        <!-- 2. board.board form views — one per module dashboard       -->
+        <!-- ========================================================== -->
+
+        <!-- ── Estate Dashboard ──────────────────────────────────── -->
+        <record id="view_board_estate" model="ir.ui.view">
+            <field name="name">Estate Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Estate Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_estate_blocks_list)d"
+                                    string="Estate Blocks"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_estate_estates_list)d"
+                                    string="Estates"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Harvest Dashboard ─────────────────────────────────── -->
+        <record id="view_board_harvest" model="ir.ui.view">
+            <field name="name">Harvest Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Harvest Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_harvest_tph_list)d"
+                                    string="TPH Harvest Records"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_harvest_taksasi_list)d"
+                                    string="Taksasi Records"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Transport Dashboard ───────────────────────────────── -->
+        <record id="view_board_transport" model="ir.ui.view">
+            <field name="name">Transport Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Transport Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_transport_spb_list)d"
+                                    string="SPB Records"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_transport_weighbridge_list)d"
+                                    string="Weighbridge Tickets"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Sales Dashboard ───────────────────────────────────── -->
+        <record id="view_board_sales" model="ir.ui.view">
+            <field name="name">Sales Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Sales Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_sales_mill_reception_list)d"
+                                    string="Mill Receptions"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_sales_invoice_list)d"
+                                    string="Invoices"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Payroll Dashboard ─────────────────────────────────── -->
+        <record id="view_board_payroll" model="ir.ui.view">
+            <field name="name">Payroll Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Payroll Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_payroll_contracts_list)d"
+                                    string="Worker Contracts"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_payroll_batches_list)d"
+                                    string="Payroll Batches"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Upkeep Dashboard ──────────────────────────────────── -->
+        <record id="view_board_upkeep" model="ir.ui.view">
+            <field name="name">Upkeep Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Upkeep Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_upkeep_bpb_list)d"
+                                    string="Work Orders (BPB)"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_upkeep_bkm_list)d"
+                                    string="BKM Records"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Planning Dashboard ────────────────────────────────── -->
+        <record id="view_board_planning" model="ir.ui.view">
+            <field name="name">Planning Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Planning Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_plan_rkap_list)d"
+                                    string="RKAP Records"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_plan_rkh_list)d"
+                                    string="RKH Records"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Plasma Dashboard ──────────────────────────────────── -->
+        <record id="view_board_plasma" model="ir.ui.view">
+            <field name="name">Plasma Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Plasma Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_plasma_farmers_list)d"
+                                    string="Plasma Farmers"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_plasma_koperasi_list)d"
+                                    string="Plasma Koperasi"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Compliance Dashboard ──────────────────────────────── -->
+        <record id="view_board_compliance" model="ir.ui.view">
+            <field name="name">Compliance Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Compliance Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_compliance_ispo_list)d"
+                                    string="ISPO Evidence"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_compliance_k3_list)d"
+                                    string="K3 Incidents"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Nursery Dashboard ─────────────────────────────────── -->
+        <record id="view_board_nursery" model="ir.ui.view">
+            <field name="name">Nursery Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Nursery Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_nursery_batches_list)d"
+                                    string="Nursery Batches"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_nursery_seedlings_list)d"
+                                    string="Nursery Seedlings"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── Reporting Dashboard ───────────────────────────────── -->
+        <record id="view_board_reporting" model="ir.ui.view">
+            <field name="name">Reporting Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Reporting Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_reporting_lhm_list)d"
+                                    string="LHM Reports"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_reporting_daily_production_list)d"
+                                    string="Daily Production"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <!-- ── GCG Dashboard ────────────────────────────────────── -->
+        <record id="view_board_gcg" model="ir.ui.view">
+            <field name="name">GCG Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="GCG Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(action_gcg_audit_logs_list)d"
+                                    string="GCG Audit Logs"
+                                    view_mode="list"/>
+                        </column>
+                        <column>
+                            <action name="%(action_gcg_exceptions_list)d"
+                                    string="GCG Exceptions"
+                                    view_mode="list"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+    </data>
+
+    <data noupdate="1">
+
+        <!-- ========================================================== -->
+        <!-- 3. ir.actions.act_window — open each board                -->
+        <!-- ========================================================== -->
+
+        <record id="action_board_estate" model="ir.actions.act_window">
+            <field name="name">Estate Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_estate"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_harvest" model="ir.actions.act_window">
+            <field name="name">Harvest Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_harvest"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_transport" model="ir.actions.act_window">
+            <field name="name">Transport Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_transport"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_sales" model="ir.actions.act_window">
+            <field name="name">Sales Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_sales"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_payroll" model="ir.actions.act_window">
+            <field name="name">Payroll Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_payroll"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_upkeep" model="ir.actions.act_window">
+            <field name="name">Upkeep Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_upkeep"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_planning" model="ir.actions.act_window">
+            <field name="name">Planning Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_planning"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_plasma" model="ir.actions.act_window">
+            <field name="name">Plasma Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_plasma"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_compliance" model="ir.actions.act_window">
+            <field name="name">Compliance Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_compliance"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_nursery" model="ir.actions.act_window">
+            <field name="name">Nursery Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_nursery"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_reporting" model="ir.actions.act_window">
+            <field name="name">Reporting Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_reporting"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_board_gcg" model="ir.actions.act_window">
+            <field name="name">GCG Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_board_gcg"/>
+            <field name="context">{'disable_toolbar': True}</field>
+            <field name="target">current</field>
+        </record>
+
+    </data>
+</odoo>

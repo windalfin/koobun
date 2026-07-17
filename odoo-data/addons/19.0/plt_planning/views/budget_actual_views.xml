@@ -24,6 +24,7 @@
 
     <!-- ── Budget Actual Form View ──────────────────────────── -->
     <record id="view_plan_budget_actual_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">plan.budget_actual.form</field>
         <field name="model">plan.budget_actual</field>
         <field name="arch" type="xml">
@@ -58,6 +59,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

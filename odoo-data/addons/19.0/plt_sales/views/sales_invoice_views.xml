@@ -24,6 +24,7 @@
 
     <!-- Form View -->
     <record id="view_sales_invoice_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">sales.invoice.form</field>
         <field name="model">sales.invoice</field>
         <field name="arch" type="xml">
@@ -66,6 +67,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

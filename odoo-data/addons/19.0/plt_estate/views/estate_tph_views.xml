@@ -17,6 +17,7 @@
 
     <!-- ── TPH Form View ─────────────────────────────────── -->
     <record id="view_estate_tph_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">estate.tph.form</field>
         <field name="model">estate.tph</field>
         <field name="arch" type="xml">

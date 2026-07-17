@@ -19,6 +19,7 @@
 
     <!-- ── Payroll Salary Rule Form View ──────────────────── -->
     <record id="view_payroll_salary_rule_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">payroll.salary_rule.form</field>
         <field name="model">payroll.salary_rule</field>
         <field name="arch" type="xml">
@@ -43,6 +44,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

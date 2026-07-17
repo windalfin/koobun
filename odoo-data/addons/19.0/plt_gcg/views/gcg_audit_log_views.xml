@@ -22,6 +22,7 @@
 
     <!-- Audit Log — Form View (read-only) -->
     <record id="view_gcg_audit_log_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">gcg.audit.log.form</field>
         <field name="model">gcg.audit.log</field>
         <field name="arch" type="xml">

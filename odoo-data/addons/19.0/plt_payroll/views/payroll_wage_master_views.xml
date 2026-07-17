@@ -22,6 +22,7 @@
 
     <!-- ── Wage Master Form View ──────────────────────────── -->
     <record id="view_payroll_wage_master_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">payroll.wage_master.form</field>
         <field name="model">payroll.wage_master</field>
         <field name="arch" type="xml">
@@ -57,6 +58,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

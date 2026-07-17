@@ -11,6 +11,7 @@
         </field>
     </record>
     <record id="view_compliance_ispo_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">compliance.ispo_evidence.form</field>
         <field name="model">compliance.ispo_evidence</field>
         <field name="arch" type="xml">
@@ -23,7 +24,7 @@
                     <group string="Evidence"><field name="evidence_doc" widget="binary"/></group>
                     <group string="Notes"><field name="notes"/></group>
                 </sheet>
-                <div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
             </form>
         </field>
     </record>
@@ -77,6 +78,7 @@
     </record>
 
     <record id="view_compliance_k3_apd_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">compliance.k3_apd.form</field>
         <field name="model">compliance.k3_apd</field>
         <field name="arch" type="xml">
@@ -99,6 +101,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

@@ -19,6 +19,7 @@
 
     <!-- ── PTKP Table Form View ─────────────────────────────── -->
     <record id="view_payroll_ptkp_table_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">payroll.ptkp_table.form</field>
         <field name="model">payroll.ptkp_table</field>
         <field name="arch" type="xml">
@@ -49,6 +50,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

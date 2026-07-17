@@ -19,6 +19,7 @@
 
     <!-- Farmer Form -->
     <record id="view_plasma_farmer_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">plasma.farmer.form</field>
         <field name="model">plasma.farmer</field>
         <field name="arch" type="xml">
@@ -44,7 +45,7 @@
                     <group string="GIS"><field name="plot_geojson"/></group>
                     <group string="Notes"><field name="notes"/></group>
                 </sheet>
-                <div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
             </form>
         </field>
     </record>
@@ -82,6 +83,7 @@
 
     <!-- FFB Intake Form -->
     <record id="view_plasma_ffb_intake_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">plasma.ffb_intake.form</field>
         <field name="model">plasma.ffb_intake</field>
         <field name="arch" type="xml">
@@ -104,7 +106,7 @@
                         <group><field name="deduction_pct"/><field name="net_amount"/></group>
                     </group>
                 </sheet>
-                <div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
             </form>
         </field>
     </record>
@@ -144,6 +146,7 @@
 
     <!-- Farmer Statement Form -->
     <record id="view_plasma_farmer_statement_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">plasma.farmer_statement.form</field>
         <field name="model">plasma.farmer_statement</field>
         <field name="arch" type="xml">
@@ -168,7 +171,7 @@
                         </group>
                     </group>
                 </sheet>
-                <div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
             </form>
         </field>
     </record>

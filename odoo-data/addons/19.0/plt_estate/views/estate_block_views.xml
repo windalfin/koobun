@@ -26,6 +26,7 @@
 
     <!-- ── Block Form View ───────────────────────────────── -->
     <record id="view_estate_block_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">estate.block.form</field>
         <field name="model">estate.block</field>
         <field name="arch" type="xml">
@@ -103,6 +104,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>

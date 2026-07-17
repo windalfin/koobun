@@ -16,6 +16,7 @@
 
     <!-- ── Ancak Form View ───────────────────────────────── -->
     <record id="view_estate_ancak_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">estate.ancak.form</field>
         <field name="model">estate.ancak</field>
         <field name="arch" type="xml">

@@ -21,6 +21,7 @@
 
     <!-- ── Restan Form View ────────────────────────────────── -->
     <record id="view_transport_restan_form" model="ir.ui.view">
+        <field name="priority">99</field>
         <field name="name">transport.restan.form</field>
         <field name="model">transport.restan</field>
         <field name="arch" type="xml">
@@ -47,6 +48,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>
