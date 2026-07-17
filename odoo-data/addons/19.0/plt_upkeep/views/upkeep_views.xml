@@ -17,7 +17,6 @@
 
     <record id="view_upkeep_activity_code_form" model="ir.ui.view">
         <field name="priority">99</field>
-        <field name="priority">99</field>
         <field name="name">upkeep.activity.code.form</field>
         <field name="model">upkeep.activity_code</field>
         <field name="arch" type="xml">
@@ -72,7 +71,6 @@
     </record>
 
     <record id="view_upkeep_bkm_form" model="ir.ui.view">
-        <field name="priority">99</field>
         <field name="priority">99</field>
         <field name="name">upkeep.bkm.form</field>
         <field name="model">upkeep.bkm</field>
@@ -141,7 +139,6 @@
 
     <record id="view_upkeep_bpb_form" model="ir.ui.view">
         <field name="priority">99</field>
-        <field name="priority">99</field>
         <field name="name">upkeep.bpb.form</field>
         <field name="model">upkeep.bpb</field>
         <field name="arch" type="xml">
@@ -206,7 +203,6 @@
 
     <record id="view_upkeep_fertilizer_program_form" model="ir.ui.view">
         <field name="priority">99</field>
-        <field name="priority">99</field>
         <field name="name">upkeep.fertilizer_program.form</field>
         <field name="model">upkeep.fertilizer_program</field>
         <field name="arch" type="xml">
@@ -260,7 +256,6 @@
     </record>
 
     <record id="view_upkeep_pd_census_form" model="ir.ui.view">
-        <field name="priority">99</field>
         <field name="priority">99</field>
         <field name="name">upkeep.pd_census.form</field>
         <field name="model">upkeep.pd_census</field>
