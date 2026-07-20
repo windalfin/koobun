@@ -238,7 +238,7 @@
                                 <list>
                                     <field name="name"/>
                                     <field name="nik"/>
-                                    <field name="status"/>
+                                    <field name="stdb"/>
                                 </list>
                             </field>
                         </page>
