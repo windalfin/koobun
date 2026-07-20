@@ -108,4 +108,107 @@
         </field>
     </record>
 
+
+    <!-- ── Environmental Record Form View ────────────────── -->
+    <record id="view_compliance_environmental_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">compliance.environmental.form</field>
+        <field name="model">compliance.environmental</field>
+        <field name="arch" type="xml">
+            <form string="Environmental Record">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="recorded,reviewed,action_required"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="record_type"/>
+                        </group>
+                        <group>
+                            <field name="block_id"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <group string="Details">
+                        <field name="description"/>
+                        <field name="photo" widget="image"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── EUDR Export Form View ─────────────────────────── -->
+    <record id="view_compliance_eudr_export_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">compliance.eudr_export.form</field>
+        <field name="model">compliance.eudr_export</field>
+        <field name="arch" type="xml">
+            <form string="EUDR Export">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,generated,submitted"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="export_date"/>
+                            <field name="block_id"/>
+                        </group>
+                        <group>
+                            <field name="total_kg"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <group string="Production Period">
+                        <field name="production_start"/>
+                        <field name="production_end"/>
+                    </group>
+                    <group string="GeoJSON">
+                        <field name="geojson_data"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── K3 Incident Form View ─────────────────────────── -->
+    <record id="view_compliance_k3_incident_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">compliance.k3_incident.form</field>
+        <field name="model">compliance.k3_incident</field>
+        <field name="arch" type="xml">
+            <form string="K3 Incident">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="reported,investigating,resolved,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="incident_date"/>
+                            <field name="incident_type"/>
+                            <field name="severity"/>
+                        </group>
+                        <group>
+                            <field name="location"/>
+                            <field name="block_id"/>
+                            <field name="employee_id"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description"/>
+                    </group>
+                    <group string="Corrective Action">
+                        <field name="corrective_action"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
 </odoo>

@@ -140,4 +140,32 @@
         </field>
     </record>
 
+
+    <!-- ── Culling Record Form View ──────────────────────── -->
+    <record id="view_nursery_culling_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">nursery.culling.form</field>
+        <field name="model">nursery.culling</field>
+        <field name="arch" type="xml">
+            <form string="Culling Record">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="reason"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
 </odoo>
