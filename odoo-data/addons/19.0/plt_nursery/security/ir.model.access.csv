@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_nursery_batch_user,nursery.batch.user,model_nursery_batch,base.group_user,1,0,0,0
-access_nursery_batch_manager,nursery.batch.manager,model_nursery_batch,group_nursery_manager,1,1,1,1
-access_nursery_seedling_user,nursery.seedling.user,model_nursery_seedling,base.group_user,1,0,0,0
-access_nursery_seedling_manager,nursery.seedling.manager,model_nursery_seedling,group_nursery_manager,1,1,1,1
-access_nursery_culling_user,nursery.culling.user,model_nursery_culling,base.group_user,1,0,0,0
-access_nursery_culling_manager,nursery.culling.manager,model_nursery_culling,group_nursery_manager,1,1,1,1
-access_nursery_transfer_user,nursery.transfer.user,model_nursery_transfer,base.group_user,1,0,0,0
-access_nursery_transfer_manager,nursery.transfer.manager,model_nursery_transfer,group_nursery_manager,1,1,1,1

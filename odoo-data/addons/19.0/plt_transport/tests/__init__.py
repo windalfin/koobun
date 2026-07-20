@@ -1,3 +1,0 @@
-# -*- coding: utf-8 -*-
-from . import test_transport
-from . import test_spb_gap
