@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Premi Statement List View ─────────────────────── -->
+    <record id="view_harvest_premi_statement_list" model="ir.ui.view">
+        <field name="name">harvest.premi_statement.list</field>
+        <field name="model">harvest.premi_statement</field>
+        <field name="arch" type="xml">
+            <list string="Premi Statements">
+                <field name="date"/>
+                <field name="harvester_id"/>
+                <field name="premi_amount"/>
+                <field name="denda_amount"/>
+                <field name="net_premi"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-success="state == 'posted'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Premi Statement Form View ────────────────────── -->
+    <record id="view_harvest_premi_statement_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">harvest.premi_statement.form</field>
+        <field name="model">harvest.premi_statement</field>
+        <field name="arch" type="xml">
+            <form string="Premi Statement">
+                <header>
+                    <button name="action_post" type="object"
+                            string="Post" class="oe_highlight"
+                            invisible="state != 'draft'"/>
+                    <button name="action_draft" type="object"
+                            string="Set Draft"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="harvester_id"/>
+                        </group>
+                        <group>
+                            <field name="premi_amount"/>
+                            <field name="denda_amount"/>
+                            <field name="net_premi"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Premi Statement Search View ──────────────────── -->
+    <record id="view_harvest_premi_statement_search" model="ir.ui.view">
+        <field name="name">harvest.premi_statement.search</field>
+        <field name="model">harvest.premi_statement</field>
+        <field name="arch" type="xml">
+            <search string="Cari Premi Statement">
+                <field name="date"/>
+                <field name="harvester_id"/>
+                <filter name="draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="posted" string="Posted"
+                        domain="[('state', '=', 'posted')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── Premi Statement Action ────────────────────────── -->
+    <record id="action_harvest_premi_statement" model="ir.actions.act_window">
+        <field name="name">Premi Statements</field>
+        <field name="res_model">harvest.premi_statement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

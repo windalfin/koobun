@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── THR Config Tree View ─────────────────────────────── -->
+    <record id="view_payroll_thr_config_tree" model="ir.ui.view">
+        <field name="name">payroll.thr_config.tree</field>
+        <field name="model">payroll.thr_config</field>
+        <field name="arch" type="xml">
+            <list string="Konfigurasi THR">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="rate_pct" widget="percentage"/>
+                <field name="prorate_basis"/>
+                <field name="effective_from"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'approved'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── THR Config Form View ─────────────────────────────── -->
+    <record id="view_payroll_thr_config_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">payroll.thr_config.form</field>
+        <field name="model">payroll.thr_config</field>
+        <field name="arch" type="xml">
+            <form string="Konfigurasi THR">
+                <header>
+                    <button name="action_approve" type="object"
+                            string="Setujui"
+                            class="oe_highlight"
+                            invisible="state != 'draft'"/>
+                    <button name="action_set_draft" type="object"
+                            string="Kembali ke Draft"
+                            invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,approved"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="year"/>
+                            <field name="month"/>
+                        </group>
+                        <group>
+                            <field name="rate_pct" widget="percentage"/>
+                            <field name="prorate_basis"/>
+                            <field name="effective_from"/>
+                            <field name="effective_to"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── THR Config Search View ──────────────────────────── -->
+    <record id="view_payroll_thr_config_search" model="ir.ui.view">
+        <field name="name">payroll.thr_config.search</field>
+        <field name="model">payroll.thr_config</field>
+        <field name="arch" type="xml">
+            <search string="Konfigurasi THR">
+                <field name="name"/>
+                <field name="year"/>
+                <separator/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_approved" string="Disetujui"
+                        domain="[('state', '=', 'approved')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── THR Config Action ────────────────────────────────── -->
+    <record id="action_payroll_thr_config" model="ir.actions.act_window">
+        <field name="name">Konfigurasi THR</field>
+        <field name="res_model">payroll.thr_config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

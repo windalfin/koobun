@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Payslip Line Tree View ─────────────────────────── -->
+    <record id="view_payroll_payslip_line_tree" model="ir.ui.view">
+        <field name="name">payroll.payslip_line.tree</field>
+        <field name="model">payroll.payslip_line</field>
+        <field name="arch" type="xml">
+            <list string="Payslip Lines">
+                <field name="payroll_batch_id"/>
+                <field name="employee_id"/>
+                <field name="hk_count"/>
+                <field name="daily_base"/>
+                <field name="premi_amount"/>
+                <field name="denda_amount"/>
+                <field name="pph21_amount"/>
+                <field name="tht_amount"/>
+                <field name="net_pay"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Payslip Line Form View ─────────────────────────── -->
+    <record id="view_payroll_payslip_line_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">payroll.payslip_line.form</field>
+        <field name="model">payroll.payslip_line</field>
+        <field name="arch" type="xml">
+            <form string="Payslip Line">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="payroll_batch_id"/>
+                            <field name="employee_id"/>
+                            <field name="hk_count"/>
+                            <field name="daily_base"/>
+                        </group>
+                        <group>
+                            <field name="premi_amount"/>
+                            <field name="denda_amount"/>
+                            <field name="pph21_amount"/>
+                            <field name="tht_amount"/>
+                            <field name="net_pay"/>
+                        </group>
+                    </group>
+                    <group string="BPJS Details">
+                        <field name="bpjs_amounts" widget="ace"
+                               options="{'mode': 'json'}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Payslip Line Action ────────────────────────────── -->
+    <record id="action_payroll_payslip_line" model="ir.actions.act_window">
+        <field name="name">Payslip Lines</field>
+        <field name="res_model">payroll.payslip_line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

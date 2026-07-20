@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_upkeep_root"
+              name="Upkeep (Pemeliharaan)"
+              sequence="40"/>
+
+    <!-- Activity Codes -->
+    <record id="action_upkeep_activity_code" model="ir.actions.act_window">
+        <field name="name">Activity Codes</field>
+        <field name="res_model">upkeep.activity_code</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_upkeep_activity_code"
+              parent="menu_upkeep_root"
+              name="Activity Codes"
+              sequence="10"
+              action="action_upkeep_activity_code"/>
+
+    <!-- BKM -->
+    <record id="action_upkeep_bkm" model="ir.actions.act_window">
+        <field name="name">BKM (Buku Kerja Mandor)</field>
+        <field name="res_model">upkeep.bkm</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_upkeep_bkm"
+              parent="menu_upkeep_root"
+              name="BKM"
+              sequence="20"
+              action="action_upkeep_bkm"/>
+
+    <!-- BPB -->
+    <record id="action_upkeep_bpb" model="ir.actions.act_window">
+        <field name="name">BPB (Bon Permintaan Barang)</field>
+        <field name="res_model">upkeep.bpb</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_upkeep_bpb"
+              parent="menu_upkeep_root"
+              name="BPB"
+              sequence="30"
+              action="action_upkeep_bpb"/>
+
+    <!-- Fertilizer Program -->
+    <record id="action_upkeep_fertilizer_program" model="ir.actions.act_window">
+        <field name="name">Fertilizer Programs</field>
+        <field name="res_model">upkeep.fertilizer_program</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_upkeep_fertilizer_program"
+              parent="menu_upkeep_root"
+              name="Fertilizer Programs"
+              sequence="40"
+              action="action_upkeep_fertilizer_program"/>
+
+    <!-- P&D Census -->
+    <record id="action_upkeep_pd_census" model="ir.actions.act_window">
+        <field name="name">P&amp;D Census</field>
+        <field name="res_model">upkeep.pd_census</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_upkeep_pd_census"
+              parent="menu_upkeep_root"
+              name="P&amp;D Census"
+              sequence="50"
+              action="action_upkeep_pd_census"/>
+
+</odoo>

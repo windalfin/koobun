@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Main Transport Menu ──────────────────────────────── -->
+    <menuitem id="menu_transport_root"
+              name="Transport"
+              sequence="70"
+              web_icon="plt_transport,static/description/icon.png"/>
+
+    <!-- ── Sub-menus ─────────────────────────────────────── -->
+    <menuitem id="menu_transport_spb"
+              name="SPB"
+              parent="menu_transport_root"
+              action="action_transport_spb"
+              sequence="10"/>
+
+    <menuitem id="menu_transport_weighbridge"
+              name="Weighbridge Tickets"
+              parent="menu_transport_root"
+              action="action_transport_weighbridge_ticket"
+              sequence="20"/>
+
+    <menuitem id="menu_transport_restan"
+              name="Restan"
+              parent="menu_transport_root"
+              action="action_transport_restan"
+              sequence="30"/>
+
+    <menuitem id="menu_transport_reconciliation"
+              name="Reconciliation"
+              parent="menu_transport_root"
+              action="action_transport_reconciliation"
+              sequence="40"/>
+</odoo>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_nursery_batch_tree" model="ir.ui.view">
+        <field name="name">nursery.batch.tree</field>
+        <field name="model">nursery.batch</field>
+        <field name="arch" type="xml">
+            <list string="Nursery Batches">
+                <field name="name"/><field name="variety"/><field name="source"/>
+                <field name="quantity_received"/><field name="date_received"/>
+                <field name="stage" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_nursery_batch_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">nursery.batch.form</field>
+        <field name="model">nursery.batch</field>
+        <field name="arch" type="xml">
+            <form string="Nursery Batch">
+                <header>
+                    <button name="action_advance_stage" type="object" string="Advance Stage"
+                            class="btn-primary" invisible="stage in ('ready_transfer', 'transferred')"/>
+                    <field name="stage" widget="statusbar"
+                           statusbar_visible="pre_nursery,main_nursery,ready_transfer,transferred"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="variety"/><field name="source"/>
+                            <field name="date_received"/>
+                        </group>
+                        <group>
+                            <field name="quantity_received"/>
+                            <field name="germination_rate"/>
+                            <field name="survival_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Seedlings">
+                            <field name="seedling_ids">
+                                <list><field name="tag_number"/><field name="status"/></list>
+                            </field>
+                        </page>
+                        <page string="Cullings">
+                            <field name="culling_ids">
+                                <list><field name="date"/><field name="quantity"/><field name="reason"/></list>
+                            </field>
+                        </page>
+                        <page string="Transfers">
+                            <field name="transfer_ids">
+                                <list><field name="date"/><field name="block_id"/><field name="quantity"/><field name="state"/></list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nursery_culling_tree" model="ir.ui.view">
+        <field name="name">nursery.culling.tree</field>
+        <field name="model">nursery.culling</field>
+        <field name="arch" type="xml">
+            <list string="Culling Records">
+                <field name="date"/><field name="batch_id"/>
+                <field name="quantity"/><field name="reason"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_nursery_transfer_tree" model="ir.ui.view">
+        <field name="name">nursery.transfer.tree</field>
+        <field name="model">nursery.transfer</field>
+        <field name="arch" type="xml">
+            <list string="Transfers">
+                <field name="date"/><field name="batch_id"/>
+                <field name="block_id"/><field name="quantity"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_nursery_transfer_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">nursery.transfer.form</field>
+        <field name="model">nursery.transfer</field>
+        <field name="arch" type="xml">
+            <form string="Transfer">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_complete" type="object" string="Complete"
+                            class="btn-primary" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,completed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group><field name="batch_id"/><field name="date"/></group>
+                        <group><field name="block_id"/><field name="quantity"/><field name="spacing_m"/></group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nursery_seedling_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">nursery.seedling.form</field>
+        <field name="model">nursery.seedling</field>
+        <field name="arch" type="xml">
+            <form string="Seedling">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="tag_number"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="transfer_date"/>
+                        </group>
+                    </group>
+                    <group string="Keterangan">
+                        <field name="cull_reason" placeholder="Alasan culling..."/>
+                        <field name="notes" placeholder="Catatan..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ── Culling Record Form View ──────────────────────── -->
+    <record id="view_nursery_culling_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">nursery.culling.form</field>
+        <field name="model">nursery.culling</field>
+        <field name="arch" type="xml">
+            <form string="Culling Record">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="batch_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="reason"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+</odoo>

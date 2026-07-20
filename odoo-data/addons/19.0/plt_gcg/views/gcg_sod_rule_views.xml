@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================ -->
+    <!--  SoD Rules — Tree View                                            -->
+    <!-- ================================================================ -->
+    <record id="view_gcg_sod_rule_tree" model="ir.ui.view">
+        <field name="name">gcg.sod.rule.tree</field>
+        <field name="model">gcg.sod.rule</field>
+        <field name="arch" type="xml">
+            <list string="SoD Rules">
+                <field name="name"/>
+                <field name="role_a_id"/>
+                <field name="role_b_id"/>
+                <field name="is_blocking" optional="show"/>
+                <field name="is_active" optional="show"/>
+                <field name="document_model_ids" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- SoD Rules — Form View -->
+    <record id="view_gcg_sod_rule_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">gcg.sod.rule.form</field>
+        <field name="model">gcg.sod.rule</field>
+        <field name="arch" type="xml">
+            <form string="SoD Rule">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="is_active" widget="boolean_button"
+                                   options='{"terminology": "active"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. Requisitioner vs Approver"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Conflicting Roles">
+                            <field name="role_a_id" required="1"/>
+                            <field name="role_b_id" required="1"/>
+                        </group>
+                        <group string="Rule Behaviour">
+                            <field name="is_blocking"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                    <group string="Details">
+                        <field name="conflict_description" required="1"/>
+                        <field name="document_model_ids"
+                               placeholder="e.g. upkeep.bpb,upkeep.upkeep"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- SoD Rules — Search View -->
+    <record id="view_gcg_sod_rule_search" model="ir.ui.view">
+        <field name="name">gcg.sod.rule.search</field>
+        <field name="model">gcg.sod.rule</field>
+        <field name="arch" type="xml">
+            <search string="Search SoD Rules">
+                <field name="name"/>
+                <field name="role_a_id"/>
+                <field name="role_b_id"/>
+                <filter name="blocking" string="Blocking Rules"
+                        domain="[('is_blocking', '=', True)]"/>
+                <filter name="warning" string="Warning Rules"
+                        domain="[('is_blocking', '=', False)]"/>
+                <separator/>
+                <filter name="active" string="Active"
+                        domain="[('is_active', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- SoD Rules — Action -->
+    <record id="action_gcg_sod_rule" model="ir.actions.act_window">
+        <field name="name">SoD Rules</field>
+        <field name="res_model">gcg.sod.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_gcg_sod_rule_search"/>
+    </record>
+
+</odoo>

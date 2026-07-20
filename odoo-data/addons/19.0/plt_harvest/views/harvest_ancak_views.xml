@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Ancak List View ─────────────────────────────── -->
+    <record id="view_harvest_ancak_list" model="ir.ui.view">
+        <field name="name">harvest.ancak.list</field>
+        <field name="model">harvest.ancak</field>
+        <field name="arch" type="xml">
+            <list string="Ancak">
+                <field name="date"/>
+                <field name="mandor_id"/>
+                <field name="harvester_id"/>
+                <field name="block_id"/>
+                <field name="ancak_type" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Ancak Form View ─────────────────────────────── -->
+    <record id="view_harvest_ancak_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">harvest.ancak.form</field>
+        <field name="model">harvest.ancak</field>
+        <field name="arch" type="xml">
+            <form string="Ancak">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="block_id"/>
+                            <field name="ancak_type"/>
+                        </group>
+                        <group>
+                            <field name="mandor_id"/>
+                            <field name="harvester_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Ancak Action ────────────────────────────────── -->
+    <record id="action_harvest_ancak" model="ir.actions.act_window">
+        <field name="name">Ancak</field>
+        <field name="res_model">harvest.ancak</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

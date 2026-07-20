@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Afdeling Tree View ────────────────────────────── -->
+    <record id="view_estate_afdeling_tree" model="ir.ui.view">
+        <field name="name">estate.afdeling.tree</field>
+        <field name="model">estate.afdeling</field>
+        <field name="arch" type="xml">
+            <list string="Afdelings">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="estate_id"/>
+                <field name="manager_id"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Afdeling Form View ────────────────────────────── -->
+    <record id="view_estate_afdeling_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">estate.afdeling.form</field>
+        <field name="model">estate.afdeling</field>
+        <field name="arch" type="xml">
+            <form string="Afdeling">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="estate_id"/>
+                            <field name="manager_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Afdeling Action ───────────────────────────────── -->
+    <record id="action_estate_afdeling" model="ir.actions.act_window">
+        <field name="name">Afdelings</field>
+        <field name="res_model">estate.afdeling</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first afdeling!
+            </p>
+        </field>
+    </record>
+</odoo>

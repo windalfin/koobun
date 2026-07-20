@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_transport_spb_user,transport.spb.user,model_transport_spb,base.group_user,1,0,0,0
+access_transport_spb_manager,transport.spb.manager,model_transport_spb,plt_transport.group_transport_manager,1,1,1,1
+access_transport_weighbridge_ticket_user,transport.weighbridge_ticket.user,model_transport_weighbridge_ticket,base.group_user,1,0,0,0
+access_transport_weighbridge_ticket_manager,transport.weighbridge_ticket.manager,model_transport_weighbridge_ticket,plt_transport.group_transport_manager,1,1,1,1
+access_transport_restan_user,transport.restan.user,model_transport_restan,base.group_user,1,0,0,0
+access_transport_restan_manager,transport.restan.manager,model_transport_restan,plt_transport.group_transport_manager,1,1,1,1
+access_transport_reconciliation_user,transport.reconciliation.user,model_transport_reconciliation,base.group_user,1,0,0,0
+access_transport_reconciliation_manager,transport.reconciliation.manager,model_transport_reconciliation,plt_transport.group_transport_manager,1,1,1,1

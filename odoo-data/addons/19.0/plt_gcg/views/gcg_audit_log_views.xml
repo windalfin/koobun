@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================================================================ -->
+    <!--  Audit Log — Tree View (read-only)                                -->
+    <!-- ================================================================ -->
+    <record id="view_gcg_audit_log_tree" model="ir.ui.view">
+        <field name="name">gcg.audit.log.tree</field>
+        <field name="model">gcg.audit.log</field>
+        <field name="arch" type="xml">
+            <list string="Audit Log" create="false" delete="false" edit="false">
+                <field name="changed_at"/>
+                <field name="model_name"/>
+                <field name="record_name"/>
+                <field name="field_name"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="changed_by"/>
+                <field name="transaction_type" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Audit Log — Form View (read-only) -->
+    <record id="view_gcg_audit_log_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">gcg.audit.log.form</field>
+        <field name="model">gcg.audit.log</field>
+        <field name="arch" type="xml">
+            <form string="Audit Log Entry" create="false" delete="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="model_name"/>
+                            <span> — </span>
+                            <field name="record_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Change Details">
+                            <field name="changed_at"/>
+                            <field name="changed_by"/>
+                            <field name="transaction_type"/>
+                        </group>
+                        <group string="Modified Field">
+                            <field name="field_name"/>
+                            <field name="record_id"/>
+                        </group>
+                    </group>
+                    <group string="Values">
+                        <field name="old_value" nolabel="1"/>
+                        <field name="new_value" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Audit Log — Search View -->
+    <record id="view_gcg_audit_log_search" model="ir.ui.view">
+        <field name="name">gcg.audit.log.search</field>
+        <field name="model">gcg.audit.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Audit Log">
+                <field name="model_name"/>
+                <field name="field_name"/>
+                <field name="record_name"/>
+                <field name="changed_by"/>
+                <field name="changed_at"/>
+                <filter name="today" string="Today"
+                        domain="[('changed_at', '&gt;=', datetime.datetime.combine(datetime.date.today(), datetime.time.min))]"/>
+                <filter name="this_week" string="This Week"
+                        domain="[('changed_at', '&gt;=', (context_today() - datetime.timedelta(days=context_today().weekday())))]"/>
+                <separator/>
+                <filter name="create" string="Creates"
+                        domain="[('transaction_type', '=', 'create')]"/>
+                <filter name="write" string="Writes"
+                        domain="[('transaction_type', '=', 'write')]"/>
+                <filter name="unlink" string="Deletes"
+                        domain="[('transaction_type', '=', 'unlink')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Audit Log — Action -->
+    <record id="action_gcg_audit_log" model="ir.actions.act_window">
+        <field name="name">Audit Log</field>
+        <field name="res_model">gcg.audit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_gcg_audit_log_search"/>
+    </record>
+
+</odoo>

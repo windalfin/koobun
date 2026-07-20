@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_compliance_ispo_tree" model="ir.ui.view">
+        <field name="name">compliance.ispo_evidence.tree</field>
+        <field name="model">compliance.ispo_evidence</field>
+        <field name="arch" type="xml">
+            <list string="ISPO Evidence">
+                <field name="principle"/><field name="criterion"/>
+                <field name="description"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_compliance_ispo_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">compliance.ispo_evidence.form</field>
+        <field name="model">compliance.ispo_evidence</field>
+        <field name="arch" type="xml">
+            <form string="ISPO Evidence">
+                <sheet>
+                    <group>
+                        <group><field name="principle"/><field name="criterion"/></group>
+                        <group><field name="status"/><field name="verified_by_id"/></group>
+                    </group>
+                    <group string="Evidence"><field name="evidence_doc" widget="binary"/></group>
+                    <group string="Notes"><field name="notes"/></group>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_compliance_eudr_tree" model="ir.ui.view">
+        <field name="name">compliance.eudr_export.tree</field>
+        <field name="model">compliance.eudr_export</field>
+        <field name="arch" type="xml">
+            <list string="EUDR Export">
+                <field name="export_date"/><field name="block_id"/>
+                <field name="total_kg"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_compliance_k3_tree" model="ir.ui.view">
+        <field name="name">compliance.k3_incident.tree</field>
+        <field name="model">compliance.k3_incident</field>
+        <field name="arch" type="xml">
+            <list string="K3 Incidents">
+                <field name="incident_date"/><field name="incident_type"/>
+                <field name="severity" widget="badge"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_compliance_env_tree" model="ir.ui.view">
+        <field name="name">compliance.environmental.tree</field>
+        <field name="model">compliance.environmental</field>
+        <field name="arch" type="xml">
+            <list string="Environmental Records">
+                <field name="date"/><field name="record_type"/>
+                <field name="block_id"/><field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- K3 APD / PPE issue records -->
+    <record id="view_compliance_k3_apd_tree" model="ir.ui.view">
+        <field name="name">compliance.k3_apd.tree</field>
+        <field name="model">compliance.k3_apd</field>
+        <field name="arch" type="xml">
+            <list string="Penyerahan APD">
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="apd_type"/>
+                <field name="quantity_issued"/>
+                <field name="condition" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_compliance_k3_apd_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">compliance.k3_apd.form</field>
+        <field name="model">compliance.k3_apd</field>
+        <field name="arch" type="xml">
+            <form string="Penyerahan APD">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="employee_id"/>
+                            <field name="apd_type"/>
+                        </group>
+                        <group>
+                            <field name="quantity_issued"/>
+                            <field name="condition"/>
+                        </group>
+                    </group>
+                    <group string="Catatan">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ── Environmental Record Form View ────────────────── -->
+    <record id="view_compliance_environmental_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">compliance.environmental.form</field>
+        <field name="model">compliance.environmental</field>
+        <field name="arch" type="xml">
+            <form string="Environmental Record">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="recorded,reviewed,action_required"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="record_type"/>
+                        </group>
+                        <group>
+                            <field name="block_id"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <group string="Details">
+                        <field name="description"/>
+                        <field name="photo" widget="image"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── EUDR Export Form View ─────────────────────────── -->
+    <record id="view_compliance_eudr_export_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">compliance.eudr_export.form</field>
+        <field name="model">compliance.eudr_export</field>
+        <field name="arch" type="xml">
+            <form string="EUDR Export">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,generated,submitted"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="export_date"/>
+                            <field name="block_id"/>
+                        </group>
+                        <group>
+                            <field name="total_kg"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <group string="Production Period">
+                        <field name="production_start"/>
+                        <field name="production_end"/>
+                    </group>
+                    <group string="GeoJSON">
+                        <field name="geojson_data"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── K3 Incident Form View ─────────────────────────── -->
+    <record id="view_compliance_k3_incident_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">compliance.k3_incident.form</field>
+        <field name="model">compliance.k3_incident</field>
+        <field name="arch" type="xml">
+            <form string="K3 Incident">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="reported,investigating,resolved,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="incident_date"/>
+                            <field name="incident_type"/>
+                            <field name="severity"/>
+                        </group>
+                        <group>
+                            <field name="location"/>
+                            <field name="block_id"/>
+                            <field name="employee_id"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description"/>
+                    </group>
+                    <group string="Corrective Action">
+                        <field name="corrective_action"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+                <div class="oe_chatter"><field name="message_follower_ids"/><field name="activity_ids"/><field name="message_ids"/></div>
+            </form>
+        </field>
+    </record>
+</odoo>

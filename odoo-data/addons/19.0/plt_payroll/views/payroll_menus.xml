@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Main Payroll Menu ──────────────────────────────── -->
+    <menuitem id="menu_payroll_root"
+              name="Payroll"
+              sequence="80"
+              web_icon="plt_payroll,static/description/icon.png"/>
+
+    <!-- ── Sub-menus ─────────────────────────────────────── -->
+    <menuitem id="menu_payroll_worker_contract"
+              name="Worker Contracts"
+              parent="menu_payroll_root"
+              action="action_payroll_worker_contract"
+              sequence="10"/>
+
+    <menuitem id="menu_payroll_wage_master"
+              name="Wage Masters"
+              parent="menu_payroll_root"
+              action="action_payroll_wage_master"
+              sequence="20"/>
+
+    <menuitem id="menu_payroll_configuration"
+              name="Configuration"
+              parent="menu_payroll_root"
+              sequence="30"/>
+
+    <menuitem id="menu_payroll_bpjs_config"
+              name="BPJS Configurations"
+              parent="menu_payroll_configuration"
+              action="action_payroll_bpjs_config"
+              sequence="10"/>
+
+    <menuitem id="menu_payroll_pph21_config"
+              name="PPh 21 TER Tables"
+              parent="menu_payroll_configuration"
+              action="action_payroll_pph21_config"
+              sequence="20"/>
+
+    <menuitem id="menu_payroll_salary_rule"
+              name="Salary Rules"
+              parent="menu_payroll_configuration"
+              action="action_payroll_salary_rule"
+              sequence="30"/>
+
+    <menuitem id="menu_payroll_ptkp_table"
+              name="Tabel PTKP"
+              parent="menu_payroll_configuration"
+              action="action_payroll_ptkp_table"
+              sequence="40"/>
+
+    <menuitem id="menu_payroll_thr_config"
+              name="Konfigurasi THR"
+              parent="menu_payroll_configuration"
+              action="action_payroll_thr_config"
+              sequence="50"/>
+
+    <menuitem id="menu_payroll_processing"
+              name="Processing"
+              parent="menu_payroll_root"
+              sequence="40"/>
+
+    <menuitem id="menu_payroll_payroll_batch"
+              name="Payroll Batches"
+              parent="menu_payroll_processing"
+              action="action_payroll_payroll_batch"
+              sequence="10"/>
+
+    <menuitem id="menu_payroll_payslip_line"
+              name="Payslip Lines"
+              parent="menu_payroll_processing"
+              action="action_payroll_payslip_line"
+              sequence="20"/>
+</odoo>

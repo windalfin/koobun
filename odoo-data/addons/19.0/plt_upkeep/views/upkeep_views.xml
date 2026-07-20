@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── Activity Code ──────────────────────────────────── -->
+    <record id="view_upkeep_activity_code_tree" model="ir.ui.view">
+        <field name="name">upkeep.activity.code.tree</field>
+        <field name="model">upkeep.activity_code</field>
+        <field name="arch" type="xml">
+            <list string="Activity Codes">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_upkeep_activity_code_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">upkeep.activity.code.form</field>
+        <field name="model">upkeep.activity_code</field>
+        <field name="arch" type="xml">
+            <form string="Activity Code">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── BKM ─────────────────────────────────────────────── -->
+    <record id="view_upkeep_bkm_tree" model="ir.ui.view">
+        <field name="name">upkeep.bkm.tree</field>
+        <field name="model">upkeep.bkm</field>
+        <field name="arch" type="xml">
+            <list string="BKM Records"
+                  decoration-info="state == 'draft'"
+                  decoration-warning="state == 'submitted'"
+                  decoration-success="state in ('approved', 'posted')"
+                  decoration-danger="state == 'cancelled'">
+                <field name="date"/>
+                <field name="mandor_id"/>
+                <field name="block_id"/>
+                <field name="activity_code_id"/>
+                <field name="worker_count"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'submitted'"
+                       decoration-success="state in ('approved', 'posted')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_upkeep_bkm_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">upkeep.bkm.form</field>
+        <field name="model">upkeep.bkm</field>
+        <field name="arch" type="xml">
+            <form string="BKM">
+                <header>
+                    <button name="action_submit" type="object" string="Submit"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_verify" type="object" string="Verify"
+                            class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_approve" type="object" string="Approve"
+                            class="btn-primary" invisible="state != 'verified'"/>
+                    <button name="action_post" type="object" string="Post"
+                            class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('posted', 'cancelled')"/>
+                    <button name="action_draft" type="object" string="Reset to Draft"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,verified,approved,posted"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="mandor_id"/>
+                            <field name="block_id"/>
+                            <field name="activity_code_id"/>
+                        </group>
+                        <group>
+                            <field name="worker_count"/>
+                            <field name="worker_ids" widget="many2many_tags"/>
+                            <field name="output_per_worker"/>
+                            <field name="output_uom"/>
+                        </group>
+                    </group>
+                    <group string="Materials">
+                        <field name="material_consumed"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── BPB ─────────────────────────────────────────────── -->
+    <record id="view_upkeep_bpb_tree" model="ir.ui.view">
+        <field name="name">upkeep.bpb.tree</field>
+        <field name="model">upkeep.bpb</field>
+        <field name="arch" type="xml">
+            <list string="BPB Records">
+                <field name="number"/>
+                <field name="date"/>
+                <field name="requestor_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_upkeep_bpb_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">upkeep.bpb.form</field>
+        <field name="model">upkeep.bpb</field>
+        <field name="arch" type="xml">
+            <form string="BPB">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,approved,issued,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="number"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="requestor_id"/>
+                        </group>
+                        <group>
+                            <field name="approved_by_id"/>
+                            <field name="issued_by_id"/>
+                        </group>
+                    </group>
+                    <group string="Items">
+                        <field name="items_description"/>
+                    </group>
+                    <group string="Quantity">
+                        <group>
+                            <field name="issued_qty"/>
+                        </group>
+                        <group>
+                            <field name="return_qty"/>
+                        </group>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Fertilizer Program ──────────────────────────────── -->
+    <record id="view_upkeep_fertilizer_program_tree" model="ir.ui.view">
+        <field name="name">upkeep.fertilizer_program.tree</field>
+        <field name="model">upkeep.fertilizer_program</field>
+        <field name="arch" type="xml">
+            <list string="Fertilizer Programs">
+                <field name="year"/>
+                <field name="round"/>
+                <field name="block_id"/>
+                <field name="fertilizer_type"/>
+                <field name="dose_per_tree_kg"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_upkeep_fertilizer_program_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">upkeep.fertilizer_program.form</field>
+        <field name="model">upkeep.fertilizer_program</field>
+        <field name="arch" type="xml">
+            <form string="Fertilizer Program">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="round"/>
+                            <field name="block_id"/>
+                        </group>
+                        <group>
+                            <field name="fertilizer_type"/>
+                            <field name="dose_per_tree_kg"/>
+                            <field name="total_kg"/>
+                        </group>
+                    </group>
+                    <group string="Realization">
+                        <field name="realization_kg"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── P&D Census ──────────────────────────────────────── -->
+    <record id="view_upkeep_pd_census_tree" model="ir.ui.view">
+        <field name="name">upkeep.pd_census.tree</field>
+        <field name="model">upkeep.pd_census</field>
+        <field name="arch" type="xml">
+            <list string="P&amp;D Census Records">
+                <field name="date"/>
+                <field name="block_id"/>
+                <field name="pest_type"/>
+                <field name="sample_count"/>
+                <field name="infected_count"/>
+                <field name="severity" widget="badge"
+                       decoration-success="severity == 'low'"
+                       decoration-warning="severity == 'medium'"
+                       decoration-danger="severity in ('high', 'critical')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_upkeep_pd_census_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">upkeep.pd_census.form</field>
+        <field name="model">upkeep.pd_census</field>
+        <field name="arch" type="xml">
+            <form string="P&amp;D Census">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="block_id"/>
+                            <field name="pest_type"/>
+                        </group>
+                        <group>
+                            <field name="sample_count"/>
+                            <field name="infected_count"/>
+                            <field name="severity"/>
+                        </group>
+                    </group>
+                    <group string="Treatment">
+                        <field name="treatment_recommended"/>
+                    </group>
+                    <group string="Photos">
+                        <field name="photos" widget="image"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!-- Form view for plt.dashboard — overview of all module stats    -->
+    <!-- ============================================================ -->
+    <record id="view_plt_dashboard_form" model="ir.ui.view">
+        <field name="priority">99</field>
+        <field name="name">plt.dashboard.form</field>
+        <field name="model">plt.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Plantation Dashboard" create="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Plantation Dashboard</h1>
+                    </div>
+                    <group string="Estate">
+                        <group>
+                            <field name="estate_block_count" string="Total Blocks"/>
+                            <field name="estate_total_ha" string="Total Hectares"/>
+                            <field name="estate_active_count" string="Active Blocks"/>
+                        </group>
+                    </group>
+                    <group string="Harvest">
+                        <group>
+                            <field name="harvest_record_count" string="Harvest Records"/>
+                            <field name="harvest_total_kg" string="Total KG Produced"/>
+                        </group>
+                    </group>
+                    <group string="Transport">
+                        <group>
+                            <field name="transport_spb_count" string="SPB Records"/>
+                        </group>
+                    </group>
+                    <group string="Sales">
+                        <group>
+                            <field name="sales_order_count" string="Sales Orders (Receptions)"/>
+                        </group>
+                    </group>
+                    <group string="Payroll">
+                        <group>
+                            <field name="payroll_contract_count" string="Worker Contracts"/>
+                            <field name="payroll_batch_count" string="Payroll Batches"/>
+                        </group>
+                    </group>
+                    <group string="Upkeep">
+                        <group>
+                            <field name="upkeep_workorder_count" string="Work Orders (BPB)"/>
+                        </group>
+                    </group>
+                    <group string="Planning">
+                        <group>
+                            <field name="planning_rkap_count" string="RKAP Records"/>
+                        </group>
+                    </group>
+                    <group string="Plasma">
+                        <group>
+                            <field name="plasma_farmer_count" string="Plasma Farmers"/>
+                            <field name="plasma_koperasi_count" string="Plasma Koperasi"/>
+                        </group>
+                    </group>
+                    <group string="Compliance">
+                        <group>
+                            <field name="compliance_ispo_count" string="ISPO Evidence"/>
+                            <field name="compliance_k3_count" string="K3 Incidents"/>
+                        </group>
+                    </group>
+                    <group string="Nursery">
+                        <group>
+                            <field name="nursery_batch_count" string="Nursery Batches"/>
+                        </group>
+                    </group>
+                    <group string="GCG">
+                        <group>
+                            <field name="gcg_audit_count" string="Audit Logs"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================================ -->
+    <!-- Action to open the overview dashboard                         -->
+    <!-- ============================================================ -->
+    <record id="action_plt_dashboard_overview" model="ir.actions.act_window">
+        <field name="name">Dashboard Overview</field>
+        <field name="res_model">plt.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_plt_dashboard_form"/>
+        <field name="context">{'disable_toolbar': True}</field>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

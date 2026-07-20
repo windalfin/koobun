@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ── Reconciliation List View ────────────────────────── -->
+    <record id="view_transport_reconciliation_list" model="ir.ui.view">
+        <field name="name">transport.reconciliation.list</field>
+        <field name="model">transport.reconciliation</field>
+        <field name="arch" type="xml">
+            <list string="Reconciliations"
+                  decoration-success="status == 'matched'"
+                  decoration-warning="status == 'variance'"
+                  decoration-danger="status == 'exception'">
+                <field name="spb_id"/>
+                <field name="spb_janjang"/>
+                <field name="spb_est_kg"/>
+                <field name="weighbridge_net"/>
+                <field name="mill_net"/>
+                <field name="variance_pct" widget="percentage"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'matched'"
+                       decoration-warning="status == 'variance'"
+                       decoration-danger="status == 'exception'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Reconciliation Form View ────────────────────────── -->
+    <record id="view_transport_reconciliation_form" model="ir.ui.view">
+        <field name="priority">1</field>
+        <field name="name">transport.reconciliation.form</field>
+        <field name="model">transport.reconciliation</field>
+        <field name="arch" type="xml">
+            <form string="Reconciliation">
+                <header>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="matched,variance,exception"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="spb_id"/>
+                            <field name="notes"/>
+                        </group>
+                        <group>
+                            <field name="status" widget="badge"
+                                   decoration-success="status == 'matched'"
+                                   decoration-warning="status == 'variance'"
+                                   decoration-danger="status == 'exception'"/>
+                            <field name="variance_pct" widget="percentage"/>
+                        </group>
+                    </group>
+                    <group string="SPB Data">
+                        <group>
+                            <field name="spb_janjang"/>
+                            <field name="spb_est_kg"/>
+                        </group>
+                    </group>
+                    <group string="Weighbridge &amp; Mill">
+                        <group>
+                            <field name="weighbridge_net"/>
+                        </group>
+                        <group>
+                            <field name="mill_net"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Reconciliation Search View ──────────────────────── -->
+    <record id="view_transport_reconciliation_search" model="ir.ui.view">
+        <field name="name">transport.reconciliation.search</field>
+        <field name="model">transport.reconciliation</field>
+        <field name="arch" type="xml">
+            <search string="Search Reconciliations">
+                <field name="spb_id"/>
+                <filter name="matched" string="Matched"
+                        domain="[('status','=','matched')]"/>
+                <filter name="variance" string="Variance"
+                        domain="[('status','=','variance')]"/>
+                <filter name="exception" string="Exception"
+                        domain="[('status','=','exception')]"/>
+                <separator/>
+                <filter name="group_status" string="Status"
+                        context="{'group_by':'status'}"/>
+                <filter name="group_spb" string="SPB"
+                        context="{'group_by':'spb_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── Reconciliation Action ───────────────────────────── -->
+    <record id="action_transport_reconciliation" model="ir.actions.act_window">
+        <field name="name">Reconciliation (3-Way Match)</field>
+        <field name="res_model">transport.reconciliation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

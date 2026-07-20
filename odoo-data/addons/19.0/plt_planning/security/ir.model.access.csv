@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_plan_norma_kerja_user,plan.norma_kerja.user,model_plan_norma_kerja,base.group_user,1,0,0,0
+access_plan_norma_kerja_manager,plan.norma_kerja.manager,model_plan_norma_kerja,group_planning_manager,1,1,1,1
+access_plan_rkap_user,plan.rkap.user,model_plan_rkap,base.group_user,1,0,0,0
+access_plan_rkap_manager,plan.rkap.manager,model_plan_rkap,group_planning_manager,1,1,1,1
+access_plan_rkb_user,plan.rkb.user,model_plan_rkb,base.group_user,1,0,0,0
+access_plan_rkb_manager,plan.rkb.manager,model_plan_rkb,group_planning_manager,1,1,1,1
+access_plan_rkh_user,plan.rkh.user,model_plan_rkh,base.group_user,1,0,0,0
+access_plan_rkh_manager,plan.rkh.manager,model_plan_rkh,group_planning_manager,1,1,1,1
+access_plan_budget_actual_user,plan.budget_actual.user,model_plan_budget_actual,base.group_user,1,0,0,0
+access_plan_budget_actual_manager,plan.budget_actual.manager,model_plan_budget_actual,group_planning_manager,1,1,1,1

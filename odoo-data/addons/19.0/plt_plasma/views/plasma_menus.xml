@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_plasma_root" name="Plasma / Kemitraan" sequence="50"/>
+
+    <record id="action_plasma_farmer" model="ir.actions.act_window">
+        <field name="name">Farmers</field>
+        <field name="res_model">plasma.farmer</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_plasma_farmer" parent="menu_plasma_root" name="Farmers" sequence="10" action="action_plasma_farmer"/>
+
+    <record id="action_plasma_koperasi" model="ir.actions.act_window">
+        <field name="name">Koperasi</field>
+        <field name="res_model">plasma.koperasi</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_plasma_koperasi" parent="menu_plasma_root" name="Koperasi" sequence="20" action="action_plasma_koperasi"/>
+
+    <record id="action_plasma_ffb_intake" model="ir.actions.act_window">
+        <field name="name">FFB Intake</field>
+        <field name="res_model">plasma.ffb_intake</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_plasma_ffb_intake" parent="menu_plasma_root" name="FFB Intake" sequence="30" action="action_plasma_ffb_intake"/>
+
+    <record id="action_plasma_loan_ledger" model="ir.actions.act_window">
+        <field name="name">Loan Ledger</field>
+        <field name="res_model">plasma.loan_ledger</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_plasma_loan_ledger" parent="menu_plasma_root" name="Loan Ledger" sequence="40" action="action_plasma_loan_ledger"/>
+
+    <record id="action_plasma_farmer_statement" model="ir.actions.act_window">
+        <field name="name">Farmer Statements</field>
+        <field name="res_model">plasma.farmer_statement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_plasma_farmer_statement" parent="menu_plasma_root" name="Farmer Statements" sequence="50" action="action_plasma_farmer_statement"/>
+
+    <record id="action_plasma_disbun_price" model="ir.actions.act_window">
+        <field name="name">Harga Disbun</field>
+        <field name="res_model">plasma.disbun_price</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_plasma_disbun_price" parent="menu_plasma_root" name="Harga Disbun (Per Kelompok Umur)" sequence="60" action="action_plasma_disbun_price"/>
+
+</odoo>
