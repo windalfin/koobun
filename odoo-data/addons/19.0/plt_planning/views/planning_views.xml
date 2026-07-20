@@ -18,7 +18,7 @@
     </record>
 
     <record id="view_plan_norma_kerja_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plan.norma_kerja.form</field>
         <field name="model">plan.norma_kerja</field>
         <field name="arch" type="xml">
@@ -67,7 +67,7 @@
     </record>
 
     <record id="view_plan_rkap_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plan.rkap.form</field>
         <field name="model">plan.rkap</field>
         <field name="arch" type="xml">
@@ -139,7 +139,7 @@
     </record>
 
     <record id="view_plan_rkb_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plan.rkb.form</field>
         <field name="model">plan.rkb</field>
         <field name="arch" type="xml">
@@ -200,7 +200,7 @@
     </record>
 
     <record id="view_plan_rkh_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plan.rkh.form</field>
         <field name="model">plan.rkh</field>
         <field name="arch" type="xml">

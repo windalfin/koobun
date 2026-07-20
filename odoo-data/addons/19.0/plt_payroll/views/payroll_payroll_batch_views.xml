@@ -24,7 +24,7 @@
 
     <!-- ── Payroll Batch Form View ────────────────────────── -->
     <record id="view_payroll_payroll_batch_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">payroll.payroll_batch.form</field>
         <field name="model">payroll.payroll_batch</field>
         <field name="arch" type="xml">

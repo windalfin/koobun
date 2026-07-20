@@ -20,7 +20,7 @@
 
     <!-- ── Disbun Price Form View ───────────────────────────── -->
     <record id="view_plasma_disbun_price_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.disbun_price.form</field>
         <field name="model">plasma.disbun_price</field>
         <field name="arch" type="xml">

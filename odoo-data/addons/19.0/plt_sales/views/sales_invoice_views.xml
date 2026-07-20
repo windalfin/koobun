@@ -24,7 +24,7 @@
 
     <!-- Form View -->
     <record id="view_sales_invoice_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">sales.invoice.form</field>
         <field name="model">sales.invoice</field>
         <field name="arch" type="xml">
@@ -91,7 +91,7 @@
     </record>
 
     <record id="view_sales_revenue_distribution_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">sales.revenue_distribution.form</field>
         <field name="model">sales.revenue_distribution</field>
         <field name="arch" type="xml">

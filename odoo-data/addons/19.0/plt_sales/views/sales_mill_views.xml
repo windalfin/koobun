@@ -20,7 +20,7 @@
 
     <!-- Form View -->
     <record id="view_sales_mill_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">sales.mill.form</field>
         <field name="model">sales.mill</field>
         <field name="arch" type="xml">

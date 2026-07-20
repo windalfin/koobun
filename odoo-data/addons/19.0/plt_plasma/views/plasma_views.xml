@@ -19,7 +19,7 @@
 
     <!-- Farmer Form -->
     <record id="view_plasma_farmer_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.farmer.form</field>
         <field name="model">plasma.farmer</field>
         <field name="arch" type="xml">
@@ -83,7 +83,7 @@
 
     <!-- FFB Intake Form -->
     <record id="view_plasma_ffb_intake_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.ffb_intake.form</field>
         <field name="model">plasma.ffb_intake</field>
         <field name="arch" type="xml">
@@ -146,7 +146,7 @@
 
     <!-- Farmer Statement Form -->
     <record id="view_plasma_farmer_statement_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.farmer_statement.form</field>
         <field name="model">plasma.farmer_statement</field>
         <field name="arch" type="xml">
@@ -177,7 +177,7 @@
     </record>
 
     <record id="view_plasma_siperibun_report_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.siperibun_report.form</field>
         <field name="model">plasma.siperibun_report</field>
         <field name="arch" type="xml">
@@ -211,7 +211,7 @@
 
     <!-- ── Koperasi Form View ─────────────────────────── -->
     <record id="view_plasma_koperasi_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.koperasi.form</field>
         <field name="model">plasma.koperasi</field>
         <field name="arch" type="xml">
@@ -251,7 +251,7 @@
 
     <!-- ── Loan Ledger Form View ─────────────────────────── -->
     <record id="view_plasma_loan_ledger_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">plasma.loan_ledger.form</field>
         <field name="model">plasma.loan_ledger</field>
         <field name="arch" type="xml">

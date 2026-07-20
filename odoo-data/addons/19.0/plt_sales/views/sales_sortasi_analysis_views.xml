@@ -25,7 +25,7 @@
 
     <!-- Form View -->
     <record id="view_sales_sortasi_analysis_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">sales.sortasi_analysis.form</field>
         <field name="model">sales.sortasi_analysis</field>
         <field name="arch" type="xml">

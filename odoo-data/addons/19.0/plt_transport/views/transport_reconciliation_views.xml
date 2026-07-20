@@ -25,7 +25,7 @@
 
     <!-- ── Reconciliation Form View ────────────────────────── -->
     <record id="view_transport_reconciliation_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">transport.reconciliation.form</field>
         <field name="model">transport.reconciliation</field>
         <field name="arch" type="xml">

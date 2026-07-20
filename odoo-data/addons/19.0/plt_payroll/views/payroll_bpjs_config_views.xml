@@ -21,7 +21,7 @@
 
     <!-- ── BPJS Config Form View ──────────────────────────── -->
     <record id="view_payroll_bpjs_config_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">payroll.bpjs_config.form</field>
         <field name="model">payroll.bpjs_config</field>
         <field name="arch" type="xml">

@@ -26,7 +26,7 @@
 
     <!-- ── SPB Form View ───────────────────────────────────── -->
     <record id="view_transport_spb_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">transport.spb.form</field>
         <field name="model">transport.spb</field>
         <field name="arch" type="xml">

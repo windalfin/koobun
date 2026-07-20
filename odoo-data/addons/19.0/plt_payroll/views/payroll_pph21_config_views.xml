@@ -17,7 +17,7 @@
 
     <!-- ── PPh 21 Config Form View ────────────────────────── -->
     <record id="view_payroll_pph21_config_form" model="ir.ui.view">
-        <field name="priority">1</field>
+        <field name="priority">99</field>
         <field name="name">payroll.pph21_config.form</field>
         <field name="model">payroll.pph21_config</field>
         <field name="arch" type="xml">
